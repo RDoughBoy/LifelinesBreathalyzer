@@ -1,5 +1,21 @@
 <resources>
     <string name="app_name">Lifelines Breathalyzer</string>
     <string name="action_settings">Settings</string>
-    <string name="test">Test</string>
+    <string name="title_activity_login">Login</string>
+    <string name="title_activity_sign_up">SignUpActivity</string>
+
+    <string name="login_email">Email: </string>
+    <string name="login_password">Password: </string>
+    <string name="login">Login</string>
+    <string name="login_signup">Not a member? Click here to sign up</string>
+
+    <string name="signup">Sign Up</string>
+    <string name="signup_name">Name: </string>
+    <string name="signup_email">Email: </string>
+    <string name="signup_password">Password: </string>
+    <string name="signup_password_confirm">Confirm Password: </string>
+    <string name="signup_city">City: </string>
+    <string name="signup_address">Address: </string>
+    <string name="signup_phone">Phone Number: </string>
+    <string name="signup_button">Create Account</string>
 </resources>
