@@ -28,7 +28,7 @@
                 android:layout_width="match_parent"
                 android:gravity="center"
                 android:layout_height="154dp"
-                android:id="@+id/textView"
+                android:id="@+id/ResultsTXTmsg"
                 android:background="@drawable/border_style"/>
 
             <TableRow
@@ -37,10 +37,10 @@
                 android:layout_height="match_parent" >
 
                 <Button
-                    android:text="Call A Friend"
+                    android:text="@string/callPage"
                     android:layout_width="fill_parent"
                     android:layout_height="fill_parent"
-                    android:id="@+id/button" />
+                    android:id="@+id/ResultsOption1" />
             </TableRow>
 
             <TableRow
@@ -49,10 +49,10 @@
                 android:paddingTop="10dp">
 
                 <Button
-                    android:text="Call a taxi"
+                    android:text="@string/callTaxi"
                     android:layout_width="fill_parent"
                     android:layout_height="fill_parent"
-                    android:id="@+id/button3" />
+                    android:id="@+id/ResultsOption2" />
             </TableRow>
 
             <TableRow
@@ -61,10 +61,10 @@
                 android:paddingTop="10dp">
 
                 <Button
-                    android:text="Find a Hotel"
+                    android:text="@string/findHotel"
                     android:layout_width="fill_parent"
                     android:layout_height="fill_parent"
-                    android:id="@+id/button4" />
+                    android:id="@+id/ResultsOption3" />
             </TableRow>
 
             <TableRow
@@ -73,10 +73,10 @@
                 android:paddingTop="10dp">
 
                 <Button
-                    android:text="Past Records"
+                    android:text="@string/pastRecords"
                     android:layout_width="fill_parent"
                     android:layout_height="fill_parent"
-                    android:id="@+id/button5" />
+                    android:id="@+id/ResultsOption4" />
             </TableRow>
         </LinearLayout>
     </ScrollView>

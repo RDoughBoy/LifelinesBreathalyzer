@@ -10,4 +10,130 @@
     android:paddingTop="@dimen/activity_vertical_margin"
     tools:context="com.ceng319.lifelinesbreathalyzer.PastResultsActivity">
 
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentStart="true">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical" >
+
+            <TextView
+                android:text="@string/pastRecords"
+                android:textAlignment="center"
+                android:textSize="@dimen/pageTitle"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/PastResultsTitle" />
+
+            <TableRow
+                android:paddingTop="@dimen/fab_margin"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent" >
+
+                <TextView
+                    android:text="@string/averageBAC"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/AVGbactxt" />
+            </TableRow>
+
+            <TableRow
+                android:layout_width="match_parent"
+                android:layout_height="match_parent" >
+
+                <TextView
+                    android:text="0.00 BAC"
+                    android:gravity="center"
+                    android:textSize="@dimen/resultsAverageSize"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/resultsAverage"
+                    android:background="@drawable/border_style"
+                    android:id="@+id/AVGBAC" />
+            </TableRow>
+
+            <TableRow
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:paddingTop="@dimen/fab_margin">
+
+                <TextView
+                    android:text="@string/averageHeart"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/AVGhearttxt" />
+            </TableRow>
+
+            <TableRow
+                android:layout_width="match_parent"
+                android:layout_height="match_parent" >
+
+                <TextView
+                    android:text="000 BPM"
+                    android:gravity="center"
+                    android:textSize="@dimen/resultsAverageSize"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/resultsAverage"
+                    android:background="@drawable/border_style"
+                    android:id="@+id/AVGheart" />
+            </TableRow>
+
+            <TableRow
+                android:layout_width="match_parent"
+                android:layout_height="match_parent" >
+
+                <TextView
+                    android:text="@string/pastBAC"
+                    android:layout_width="wrap_content"
+                    android:paddingTop="@dimen/fab_margin"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/PastBACtext" />
+            </TableRow>
+
+            <TableRow
+                android:layout_width="match_parent"
+                android:layout_height="match_parent" >
+
+                <TextView
+                    android:background="@drawable/border_style2"
+                    android:text="Date:0:00BAC\nDate:0:00BAC\nDate:0:00BAC\nDate:0:00BAC\nDate:0:00BAC\nDate:0:00BAC\n"
+                    android:scrollbars="vertical"
+                    android:gravity="center"
+                    android:maxLines="5"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/PastBAClevels" />
+            </TableRow>
+
+            <TableRow
+                android:layout_width="match_parent"
+                android:layout_height="match_parent" >
+
+                <TextView
+                    android:text="@string/pastBPM"
+                    android:layout_width="wrap_content"
+                    android:paddingTop="@dimen/fab_margin"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/PastBPMtext" />
+            </TableRow>
+
+            <TableRow
+                android:layout_width="match_parent"
+                android:layout_height="match_parent" >
+
+                <TextView
+                    android:background="@drawable/border_style2"
+                    android:text="Date:0:00BPM\nDate:0:00BPM\nDate:0:00BPM\nDate:0:00BPM\nDate:0:00BPM\nDate:0:00BPM\n"
+                    android:scrollbars="vertical"
+                    android:gravity="center"
+                    android:maxLines="5"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/PastBPMLevels" />
+            </TableRow>
+        </LinearLayout>
+    </ScrollView>
 </RelativeLayout>
