@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="spinner_licence">
+        <item>@string/signup_learners</item>
+        <item>@string/signup_probationary</item>
+        <item>@string/signup_full</item>
+    </string-array>
+
+    <string-array name="spinner_province">
+        <item>ON</item>
+        <item>QC</item>
+        <item>NS</item>
+        <item>NB</item>
+        <item>MB</item>
+        <item>BC</item>
+        <item>PE</item>
+        <item>SK</item>
+        <item>AB</item>
+        <item>NL</item>
+        <item>NT</item>
+        <item>YT</item>
+        <item>NU</item>
+    </string-array>
+</resources>

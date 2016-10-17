@@ -13,8 +13,36 @@ app:layout_behavior="@string/appbar_scrolling_view_behavior"
 tools:context="com.ceng319.lifelinesbreathalyzer.MainActivity"
 tools:showIn="@layout/activity_main">
 
-<TextView
-    android:layout_width="wrap_content"
-    android:layout_height="wrap_content"
-    android:text="Hello World!" />
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/lifelines_logo"
+        android:minHeight="50px"
+        android:minWidth="50px"
+        android:layout_gravity="center"
+        android:layout_alignParentStart="true" />
+
+    <Button
+        android:id="@+id/BeginTest"
+        android:layout_width="match_parent"
+        android:layout_height="150px"
+        android:padding="10px"
+        android:textColor="#ffffff"
+        android:background="@drawable/mybutton"
+        android:text="@string/test"
+        android:layout_centerVertical="true"
+        android:layout_alignParentStart="true" />
+    <Button
+        android:id="@+id/Log"
+        android:layout_width="430px"
+        android:layout_height="150px"
+        android:padding="10px"
+        android:textColor="#ffffff"
+        android:background="@drawable/mybutton"
+        android:text="@string/login"
+        android:layout_below="@+id/BeginTest"
+        android:layout_alignParentStart="true"
+        android:layout_marginTop="20dp"
+        android:layout_alignParentEnd="true" />
+
 </RelativeLayout>
