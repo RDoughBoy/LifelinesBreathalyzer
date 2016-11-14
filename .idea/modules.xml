@@ -3,6 +3,8 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/LifelinesBreathalyzer.iml" filepath="$PROJECT_DIR$/LifelinesBreathalyzer.iml" />
+      <module fileurl="file://$PROJECT_DIR$/LifelinesBreathalyzer.iml" filepath="$PROJECT_DIR$/LifelinesBreathalyzer.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Lifelines_Breathalyzer/Lifelines_Breathalyzer.iml" filepath="$PROJECT_DIR$/Lifelines_Breathalyzer/Lifelines_Breathalyzer.iml" />
       <module fileurl="file://$PROJECT_DIR$/Lifelines_Breathalyzer/Lifelines_Breathalyzer.iml" filepath="$PROJECT_DIR$/Lifelines_Breathalyzer/Lifelines_Breathalyzer.iml" />
     </modules>
   </component>

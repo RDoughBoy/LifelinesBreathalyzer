@@ -57,4 +57,5 @@
     <string name="averageHeart">Average Heart Rate</string>
     <string name="pastBAC">Past BAC Levels</string>
     <string name="pastBPM">Past BPM Levels</string>
+    <string name="title_activity_contacts">ContactsActivity</string>
 </resources>
