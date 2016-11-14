@@ -1,6 +1,7 @@
 package com.ceng319.lifelinesbreathalyzer;
 
 import android.content.Intent;
+import android.net.Uri;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
@@ -20,6 +21,7 @@ public class ResultsActivity extends AppCompatActivity {
         setSupportActionBar(toolbar);
 
         Button button_call = (Button) findViewById(R.id.ResultsOption1);
+        Button button_hotel = (Button) findViewById(R.id.ResultsOption3);
         Button button_past = (Button) findViewById(R.id.ResultsOption4);
 
         button_call.setOnClickListener(new View.OnClickListener() {
@@ -37,6 +39,18 @@ public class ResultsActivity extends AppCompatActivity {
                 startActivity(intent);
             }
         });
+
+        button_hotel.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                // Search for Hotels in the area
+                Uri gmmIntentUri = Uri.parse("geo:0,0?q=HOTELS");
+                Intent hotelSearch = new Intent(Intent.ACTION_VIEW, gmmIntentUri);
+                hotelSearch.setPackage("com.google.android.apps.maps");
+                startActivity(hotelSearch);
+            }
+        });
+
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
     }
 
