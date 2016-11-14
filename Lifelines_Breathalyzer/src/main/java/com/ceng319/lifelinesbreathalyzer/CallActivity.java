@@ -1,3 +1,7 @@
+/*
+    Designated Drivers
+ */
+
 package com.ceng319.lifelinesbreathalyzer;
 
 import android.support.v7.app.AppCompatActivity;
