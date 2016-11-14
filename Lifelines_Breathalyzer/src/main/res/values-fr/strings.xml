@@ -1,0 +1,60 @@
+<resources>
+    <string name="app_name">Lifelines Breathalyzer</string>
+    <string name="action_help">Aidez-moi</string>
+    <string name="action_about">Sur</string>
+    <string name="title_activity_login">S\'identifier</string>
+    <string name="title_activity_sign_up">S\'inscrire</string>
+    <string name="title_activity_call">Appel</string>
+    <string name="title_activity_results">Résultats</string>
+    <string name="title_activity_past_results">Résultats passés</string>
+    <string name="title_activity_test_alcohol">Test d\'alcool</string>
+    <string name="title_activity_heart_rate">Fréquence cardiaque</string>
+
+    <string name="test">Début du test</string>
+
+    <string name="login_email">Email: </string>
+    <string name="login_password">Mot de passe: </string>
+    <string name="login">Connexion</string>
+    <string name="login_signup"> Pas encore membre? Cliquez ici pour vous inscrire </string>
+
+    <string name = "signup"> Inscrivez-vous </string>
+    <string name = "signup_name"> Nom: </string>
+    <string name = "signup_email"> Email: </string>
+    <string name = "signup_password"> Mot de passe: </string>
+    <string name = "signup_password_confirm"> Confirmer le mot de passe: </string>
+    <string name = "signup_city"> Ville: </string>
+    <string name = "signup_province"> Province: </string>
+    <string name = "signup_licence"> Licence: </string>
+    <string name = "signup_address"> Adresse: </string>
+    <string name = "signup_phone"> Numéro de téléphone: </string>
+    <string name = "signup_button"> Créer un compte </string>
+    <string name = "signup_learners"> Permis de l\'apprenant </string>
+    <string name = "signup_probationary"> Licence probatoire </string>
+    <string name = "signup_full"> Licence complète </string>
+
+    <string name = "valid_name_empty"> Le nom ne peut pas être vide </string>
+    <string name = "valid_name_not"> Nom non valide </string>
+    <string name = "valid_email_empty"> Le courrier électronique ne peut pas être vide </string>
+    <string name = "valid_email_not"> Email non valide </string>
+    <string name = "valid_phone_empty"> Le numéro de téléphone ne peut pas être vide </string>
+    <string name = "valid_phone_not"> Numéro de téléphone invalide </string>
+    <string name = "valid_address_empty"> L\'adresse ne peut pas être vide </string>
+    <string name = "valid_address_not"> Adresse non valide </string>
+    <string name = "valid_password_empty"> Le mot de passe ne peut être vide </string>
+    <string name = "valid_password_not"> Doit contenir un nombre, une majuscule et avoir plus de 8 caractères </string>
+    <string name = "valid_password_check"> Le mot de passe ne correspond pas </string>
+    <string name = "valid_city_empty"> La ville ne peut pas être vide </string>
+    <string name = "valid_city_not"> Ville non valide </string>
+
+    <string name = "dialog_invalid"> 1 ou plusieurs champs sont invalides </string>
+    <string name = "dialog_error"> Erreur </string>
+
+    <string name = "callPage"> Appeler un ami </string>
+    <string name = "callTaxi"> Appeler un taxi </string>
+    <string name = "findHotel"> Trouver un hôtel </string>
+    <string name = "pastRecords"> Dossiers passés </string>
+    <string name = "averageBAC"> Moyenne BAC </string>
+    <string name = "averageHeart"> Fréquence cardiaque moyenne </string>
+    <string name = "pastBAC"> Niveaux passés de BAC </string>
+    <string name = "pastBPM"> Niveaux antérieurs de BPM </string>
+</resources>
