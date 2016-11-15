@@ -125,7 +125,7 @@ public class DBAdapter extends SQLiteOpenHelper {
     public Cursor searchLogin(String email) throws SQLException
     {
         Cursor mCursor =
-                db.rawQuery("SELECT " + KEY_EMAIL + ", " +  KEY_PASSWORD + " FROM " + TABLE_USERS + " WHERE " + KEY_EMAIL + " = " + email, null);
+                db.rawQuery("SELECT " + KEY_EMAIL + ", " +  KEY_PASSWORD + " FROM " + TABLE_USERS + " WHERE " + KEY_EMAIL + " = ?", new String[] { email });
         if (mCursor != null) {
             mCursor.moveToFirst();
         }

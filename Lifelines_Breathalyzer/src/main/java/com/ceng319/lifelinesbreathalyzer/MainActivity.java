@@ -4,10 +4,12 @@
 
 package com.ceng319.lifelinesbreathalyzer;
 
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
+import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.util.Log;
@@ -21,7 +23,6 @@ import java.util.HashMap;
 public class MainActivity extends AppCompatActivity {
 
     UserSessionManager session;
-    LoginActivity login;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -53,13 +54,13 @@ public class MainActivity extends AppCompatActivity {
         });
     }
 
-    @Override
-    protected void onDestroy(){
-        super.onDestroy();
-        // logs out use if remember me is not checked
-        if(!login.remember.isChecked())
+    /*@Override
+    protected void onStart(){
+        super.onStart();
+        if(!session.rememberMe()){
             session.logoutUser();
-    }
+        }
+    }*/
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
@@ -81,5 +82,22 @@ public class MainActivity extends AppCompatActivity {
         }
 
         return super.onOptionsItemSelected(item);
+    }
+
+    @Override
+    // Handle the Back Key
+    public void onBackPressed() {
+        AlertDialog.Builder dlgAlert = new AlertDialog.Builder(this);
+        dlgAlert.setMessage("Are you sure you want to exit?");
+        dlgAlert.setTitle("Are You Sure?");
+        dlgAlert.setNegativeButton("No", null);
+        dlgAlert.setPositiveButton("Yes", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                dialog.dismiss();
+                System.exit(1);
+            }
+        });
+        dlgAlert.create().show();
     }
 }

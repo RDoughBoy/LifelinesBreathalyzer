@@ -61,7 +61,10 @@ public class SignUpActivity extends AppCompatActivity {
                 if (name_val.getText().length() == 0) {
                     name_val.setError(getString(R.string.valid_name_empty));
                     nameValid = false;
-                } else if (!Pattern.matches("^[^0-9][A-z]+\\s[A-z]+$", name_val.getText().toString()) && name_val.getText().length() < 5) {    //Must contain no numbers, contain a space, and be over 4 characters long
+                } else if (!Pattern.matches("^[^0-9][A-z]+\\s[A-z]+$", name_val.getText().toString())) {    //Must contain no numbers, contain a space, and be over 4 characters long
+                    name_val.setError(getString(R.string.valid_name_not));
+                    nameValid = false;
+                } else if (name_val.getText().length() < 5){
                     name_val.setError(getString(R.string.valid_name_not));
                     nameValid = false;
                 } else {

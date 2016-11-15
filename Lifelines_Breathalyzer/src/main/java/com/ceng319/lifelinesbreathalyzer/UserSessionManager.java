@@ -27,6 +27,7 @@ public class UserSessionManager {
 
     private static final String PREFER_NAME = "Login";
     private static final String IS_USER_LOGIN = "IsUserLoggedIn";
+    private static final String REMEMBER = "RememberMe";
     public static final String KEY_PASS = "password";
     public static final String KEY_EMAIL = "email";
 
@@ -81,23 +82,15 @@ public class UserSessionManager {
     public void logoutUser(){
         editor.clear();
         editor.commit();
-
-        // After logout redirect user to Login Activity
-        Intent i = new Intent(_context, LoginActivity.class);
-
-        // Closing all the Activities
-        i.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
-
-        // Add new Flag to start new Activity
-        i.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-
-        // Staring Login Activity
-        _context.startActivity(i);
     }
-
 
     // Check for login
     public boolean isUserLoggedIn(){
         return pref.getBoolean(IS_USER_LOGIN, false);
+    }
+
+    // check if remember me was set
+    public boolean rememberMe(){
+        return pref.getBoolean(REMEMBER, false);
     }
 }

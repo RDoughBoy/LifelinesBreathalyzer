@@ -8,6 +8,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.database.Cursor;
+import android.icu.text.DateFormat;
 import android.os.Bundle;
 import android.preference.PreferenceManager;
 import android.support.v7.app.AlertDialog;
@@ -25,8 +26,9 @@ public class LoginActivity extends AppCompatActivity {
 
     Context context = this;
     private Boolean loginValid = false;
+    private static final String PREFER_NAME = "Login";
+    private static final String REMEMBER = "RememberMe";
     UserSessionManager session;
-    CheckBox remember = (CheckBox)findViewById(R.id.loginRemember);
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -41,6 +43,7 @@ public class LoginActivity extends AppCompatActivity {
         final EditText pass = (EditText)findViewById(R.id.loginPassword);
         TextView signup = (TextView)findViewById(R.id.loginSignUp) ;
         Button login = (Button)findViewById(R.id.loginButton);
+        final CheckBox remember = (CheckBox)findViewById(R.id.loginRemember);
 
         signup.setOnClickListener(new View.OnClickListener(){
             public void onClick(View v){
@@ -71,6 +74,15 @@ public class LoginActivity extends AppCompatActivity {
                     dlgAlert.setCancelable(true);
                     dlgAlert.create().show();
                     return;
+                }
+
+                SharedPreferences sharedPreferences = getSharedPreferences(PREFER_NAME, 0);
+                SharedPreferences.Editor editor = sharedPreferences.edit();
+
+                if(remember.isChecked()){
+                    editor.putBoolean(REMEMBER, true);
+                } else {
+                    editor.putBoolean(REMEMBER, false);
                 }
 
                 session.createUserLoginSession(email.getText().toString(), pass.getText().toString());
