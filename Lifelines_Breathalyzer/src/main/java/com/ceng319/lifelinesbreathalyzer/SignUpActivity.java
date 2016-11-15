@@ -23,7 +23,13 @@ import java.util.regex.Pattern;
 
 public class SignUpActivity extends AppCompatActivity {
 
-    private boolean valid = false;
+    private boolean nameValid = false;
+    private boolean emailValid = false;
+    private boolean passValid = false;
+    private boolean passConfirmValid = false;
+    private boolean cityValid = false;
+    private boolean addressValid = false;
+    private boolean phoneValid = false;
     Context context = this;
 
     @Override
@@ -42,6 +48,9 @@ public class SignUpActivity extends AppCompatActivity {
         final EditText pass_val = (EditText) findViewById(R.id.signupPassword); //password
         final EditText pass_confirm_val = (EditText) findViewById(R.id.signupPasswordConfirm); //password confirmation
 
+        final Spinner province = (Spinner)findViewById(R.id.signupProvince);
+        final Spinner licence = (Spinner)findViewById(R.id.signupLicence);
+
         name_val.addTextChangedListener(new TextWatcher() {
             @Override
             public void beforeTextChanged(CharSequence s, int start, int count, int after) {
@@ -51,12 +60,12 @@ public class SignUpActivity extends AppCompatActivity {
             public void onTextChanged(CharSequence s, int start, int before, int count) {
                 if (name_val.getText().length() == 0) {
                     name_val.setError(getString(R.string.valid_name_empty));
-                    valid = false;
+                    nameValid = false;
                 } else if (!Pattern.matches("^[^0-9][A-z]+\\s[A-z]+$", name_val.getText().toString()) && name_val.getText().length() < 5) {    //Must contain no numbers, contain a space, and be over 4 characters long
                     name_val.setError(getString(R.string.valid_name_not));
-                    valid = false;
+                    nameValid = false;
                 } else {
-                    valid = true;
+                    nameValid = true;
                 }
             }
 
@@ -74,12 +83,12 @@ public class SignUpActivity extends AppCompatActivity {
             public void onTextChanged(CharSequence s, int start, int before, int count) {
                 if (email_val.getText().length() == 0) {
                     email_val.setError(getString(R.string.valid_email_empty));
-                    valid = false;
+                    emailValid = false;
                 } else if (!Pattern.matches("[A-z0-9._%+-]+@[A-z0-9.-]+\\.[A-z]{2,4}", email_val.getText().toString())) {       //Must be in "name@domain.com" format
                     email_val.setError(getString(R.string.valid_email_not));
-                    valid = false;
+                    emailValid = false;
                 } else {
-                    valid = true;
+                    emailValid = true;
                 }
             }
 
@@ -97,12 +106,12 @@ public class SignUpActivity extends AppCompatActivity {
             public void onTextChanged(CharSequence s, int start, int before, int count) {
                 if (phone_val.getText().length() == 0) {
                     phone_val.setError(getString(R.string.valid_phone_empty));
-                    valid = false;
+                    phoneValid = false;
                 } else if (phone_val.getText().length() < 10) {                     //Must be 10 digits long
                     phone_val.setError(getString(R.string.valid_phone_not));
-                    valid = false;
+                    phoneValid = false;
                 } else {
-                    valid = true;
+                    phoneValid = true;
                 }
             }
 
@@ -120,12 +129,12 @@ public class SignUpActivity extends AppCompatActivity {
             public void onTextChanged(CharSequence s, int start, int before, int count) {
                 if (add_val.getText().length() == 0) {
                     add_val.setError(getString(R.string.valid_address_empty));
-                    valid = false;
+                    addressValid = false;
                 } else if (!Pattern.matches("^\\d+\\s[A-z]+\\s[A-z]+", add_val.getText().toString())) {          //Must be in "123 Name Road" format
                     add_val.setError(getString(R.string.valid_address_not));
-                    valid = false;
+                    addressValid = false;
                 } else {
-                    valid = true;
+                    addressValid = true;
                 }
             }
 
@@ -143,12 +152,12 @@ public class SignUpActivity extends AppCompatActivity {
             public void onTextChanged(CharSequence s, int start, int before, int count) {
                 if (pass_val.getText().length() == 0) {
                     pass_val.setError(getString(R.string.valid_password_empty));
-                    valid = false;
+                    passValid = false;
                 } else if (!Pattern.matches("^(?=.*[0-9])(?=.*[a-z])(?=.*[A-Z])(?=\\S+$).{8,}$", pass_val.getText().toString())) {       //Must contain a number, an uppercase, and be 8 characters long
                     pass_val.setError(getString(R.string.valid_password_not));
-                    valid = false;
+                    passValid = false;
                 } else {
-                    valid = true;
+                    passValid = true;
                 }
             }
 
@@ -166,12 +175,12 @@ public class SignUpActivity extends AppCompatActivity {
             public void onTextChanged(CharSequence s, int start, int before, int count) {
                 if (pass_confirm_val.getText().length() == 0) {
                     pass_confirm_val.setError(getString(R.string.valid_password_empty));
-                    valid = false;
+                    passConfirmValid = false;
                 } else if (!pass_confirm_val.getText().toString().equals(pass_val.getText().toString())) {      //Must match with password
                     pass_confirm_val.setError(getString(R.string.valid_password_check));
-                    valid = false;
+                    passConfirmValid = false;
                 } else {
-                    valid = true;
+                    passConfirmValid = true;
                 }
             }
 
@@ -189,12 +198,12 @@ public class SignUpActivity extends AppCompatActivity {
             public void onTextChanged(CharSequence s, int start, int before, int count) {
                 if (city_val.getText().length() == 0) {
                     city_val.setError(getString(R.string.valid_city_empty));
-                    valid = false;
+                    cityValid = false;
                 } else if (!Pattern.matches("^[^0-9]+$", city_val.getText().toString())) {            //Must contain no numbers
                     city_val.setError(getString(R.string.valid_city_not));
-                    valid = false;
+                    cityValid = false;
                 } else {
-                    valid = true;
+                    cityValid = true;
                 }
             }
 
@@ -203,20 +212,30 @@ public class SignUpActivity extends AppCompatActivity {
             }
         });
 
+        final DBAdapter dbEntry = new DBAdapter(this);
+
         Button createAccount = (Button) findViewById(R.id.signupButton);
         createAccount.setOnClickListener(new View.OnClickListener() {    //TODO write information to text file for testing
             public void onClick(View v) {
-                if (!valid) {
+                if (!nameValid || !emailValid || !passValid || !passConfirmValid || !cityValid || !addressValid || !phoneValid) {
                     AlertDialog.Builder dlgAlert = new AlertDialog.Builder(context);
                     dlgAlert.setMessage(getString(R.string.dialog_invalid));
                     dlgAlert.setTitle(getString(R.string.dialog_error));
-                    dlgAlert.setPositiveButton("OK", null);
+                    dlgAlert.setPositiveButton(getString(R.string.OK), null);
                     dlgAlert.setCancelable(true);
                     dlgAlert.create().show();
-                } else {
-                    Intent intent = new Intent(SignUpActivity.this, LoginActivity.class);
-                    startActivity(intent);
+                    return;
+                } else if(dbEntry.insertUser(name_val.getText().toString(), email_val.getText().toString(), pass_val.getText().toString(), city_val.getText().toString(), province.getSelectedItem().toString(), licence.getSelectedItem().toString(), add_val.getText().toString(), Integer.parseInt(phone_val.getText().toString())) == -1){
+                    AlertDialog.Builder dlgAlert = new AlertDialog.Builder(context);
+                    dlgAlert.setMessage(getString(R.string.signup_email_error));
+                    dlgAlert.setTitle(getString(R.string.dialog_error));
+                    dlgAlert.setPositiveButton(getString(R.string.OK), null);
+                    dlgAlert.setCancelable(true);
+                    dlgAlert.create().show();
+                    return;
                 }
+                Intent intent = new Intent(SignUpActivity.this, LoginActivity.class);
+                startActivity(intent);
             }
         });
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
