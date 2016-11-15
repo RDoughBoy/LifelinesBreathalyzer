@@ -16,7 +16,12 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.Button;
 
+import java.util.HashMap;
+
 public class MainActivity extends AppCompatActivity {
+
+    UserSessionManager session;
+    LoginActivity login;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -24,6 +29,8 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
+
+        session = new UserSessionManager(getApplicationContext());
 
         Button button_test = (Button) findViewById(R.id.BeginTest);
 
@@ -44,6 +51,14 @@ public class MainActivity extends AppCompatActivity {
                 startActivity(intent);
             }
         });
+    }
+
+    @Override
+    protected void onDestroy(){
+        super.onDestroy();
+        // logs out use if remember me is not checked
+        if(!login.remember.isChecked())
+            session.logoutUser();
     }
 
     @Override

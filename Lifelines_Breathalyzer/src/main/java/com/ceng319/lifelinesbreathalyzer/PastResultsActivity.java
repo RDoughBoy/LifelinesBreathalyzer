@@ -52,14 +52,15 @@ public class PastResultsActivity extends AppCompatActivity {
         return super.onOptionsItemSelected(item);
     }
 
+    // methods to convert arrays to strings and vice versa
     public static String strSeparator = "__,__";
     public static String convertArrayToString(String[] array){
         String str = "";
-        for (int i = 0;i<array.length; i++) {
-            str = str+array[i];
+        for (int i = 0; i < array.length; i++) {
+            str += array[i];
             // Do not append comma at the end of last element
-            if(i<array.length-1){
-                str = str+strSeparator;
+            if(i < array.length - 1){
+                str += strSeparator;
             }
         }
         return str;

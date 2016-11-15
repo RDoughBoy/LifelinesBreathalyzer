@@ -1,3 +1,7 @@
+/*
+    Designated Drivers
+ */
+
 package com.ceng319.lifelinesbreathalyzer;
 
 import android.content.ContentValues;
@@ -107,7 +111,26 @@ public class DBAdapter extends SQLiteOpenHelper {
         return db.update(TABLE_DATA, initialValues, KEY_EMAIL + " = " + email, null);
     }
 
+    //---retrieves all the patients---
+    public Cursor getAllUsers() throws SQLException
+    {
+        Cursor mCursor = db.rawQuery("SELECT * FROM " + TABLE_USERS, null);
+        if (mCursor != null) {
+            mCursor.moveToFirst();
+        }
+        return mCursor;
+    }
 
+    //---searches for a users login---
+    public Cursor searchLogin(String email) throws SQLException
+    {
+        Cursor mCursor =
+                db.rawQuery("SELECT " + KEY_EMAIL + ", " +  KEY_PASSWORD + " FROM " + TABLE_USERS + " WHERE " + KEY_EMAIL + " = " + email, null);
+        if (mCursor != null) {
+            mCursor.moveToFirst();
+        }
+        return mCursor;
+    }
 
     /*//---insert a test into the database---
     public long insertTest(int ID, String bp, int rr, int bo, int hr, String date)
