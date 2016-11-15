@@ -29,12 +29,28 @@ public class CallActivity extends AppCompatActivity {
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
         Button name1 = (Button) findViewById(R.id.Name1Button);
+        Button name2 = (Button) findViewById(R.id.Name2Button);
+        Button name3 = (Button) findViewById(R.id.Name3Button);
+        Button name4 = (Button) findViewById(R.id.Name4Button);
+        Button name5 = (Button) findViewById(R.id.Name5Button);
 
         SharedPreferences sharedPreferences = PreferenceManager.getDefaultSharedPreferences(this);
         String con1_name = sharedPreferences.getString("Contact1_Name", "empty");
         final int con1_num = sharedPreferences.getInt("Contact1_Number", 0);
+        String con2_name = sharedPreferences.getString("Contact2_Name", "empty");
+        final int con2_num = sharedPreferences.getInt("Contact2_Number", 0);
+        String con3_name = sharedPreferences.getString("Contact3_Name", "empty");
+        final int con3_num = sharedPreferences.getInt("Contact3_Number", 0);
+        String con4_name = sharedPreferences.getString("Contact4_Name", "empty");
+        final int con4_num = sharedPreferences.getInt("Contact4_Number", 0);
+        String con5_name = sharedPreferences.getString("Contact5_Name", "empty");
+        final int con5_num = sharedPreferences.getInt("Contact5_Number", 0);
 
         name1.setText(con1_name + ": " + String.valueOf(con1_num));
+        name2.setText(con2_name + ": " + String.valueOf(con2_num));
+        name3.setText(con3_name + ": " + String.valueOf(con3_num));
+        name4.setText(con4_name + ": " + String.valueOf(con4_num));
+        name5.setText(con5_name + ": " + String.valueOf(con5_num));
 
         name1.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
@@ -45,6 +61,43 @@ public class CallActivity extends AppCompatActivity {
                 startActivity(intent);
             }
         });
+        name2.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View v) {
+                Intent intent = new Intent(Intent.ACTION_CALL, Uri.parse("tel:" + String.valueOf(con2_num)));
+                if (ActivityCompat.checkSelfPermission(context, Manifest.permission.CALL_PHONE) != PackageManager.PERMISSION_GRANTED) {
+                    return;
+                }
+                startActivity(intent);
+            }
+        });
+        name3.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View v) {
+                Intent intent = new Intent(Intent.ACTION_CALL, Uri.parse("tel:" + String.valueOf(con3_num)));
+                if (ActivityCompat.checkSelfPermission(context, Manifest.permission.CALL_PHONE) != PackageManager.PERMISSION_GRANTED) {
+                    return;
+                }
+                startActivity(intent);
+            }
+        });
+        name4.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View v) {
+                Intent intent = new Intent(Intent.ACTION_CALL, Uri.parse("tel:" + String.valueOf(con4_num)));
+                if (ActivityCompat.checkSelfPermission(context, Manifest.permission.CALL_PHONE) != PackageManager.PERMISSION_GRANTED) {
+                    return;
+                }
+                startActivity(intent);
+            }
+        });
+        name5.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View v) {
+                Intent intent = new Intent(Intent.ACTION_CALL, Uri.parse("tel:" + String.valueOf(con5_num)));
+                if (ActivityCompat.checkSelfPermission(context, Manifest.permission.CALL_PHONE) != PackageManager.PERMISSION_GRANTED) {
+                    return;
+                }
+                startActivity(intent);
+            }
+        });
+
     }
 
     @Override
