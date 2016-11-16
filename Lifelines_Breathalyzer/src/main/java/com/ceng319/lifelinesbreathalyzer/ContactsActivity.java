@@ -31,8 +31,8 @@ public class ContactsActivity extends AppCompatActivity {
 
         SharedPreferences sharedPreferences = PreferenceManager
                 .getDefaultSharedPreferences(this);
+     //   sharedPreferences.edit().clear().commit();
         SharedPreferences.Editor editor = sharedPreferences.edit();
-
         Button submit = (Button)findViewById(R.id.button);
 
         final EditText name = (EditText) findViewById(R.id.editText);
@@ -51,7 +51,7 @@ public class ContactsActivity extends AppCompatActivity {
             public void onFocusChange(View v, boolean hasFocus) {
                 if (name.getText().length() == 0){
                     name.setError(getString(R.string.valid_name_empty));
-                } else if (!Pattern.matches("^[^0-9][A-z]+\\s[A-z]+$", name.getText().toString()) && name.getText().length() < 5) {    //Must contain no numbers, contain a space, and be over 4 characters long
+                } else if (!Pattern.matches("^[^0-9][A-z]+\\s[A-z]+$", name.getText().toString())) {    //Must contain no numbers, contain a space, and be over 4 characters long
                     name.setError(getString(R.string.valid_name_not));
                 } else {
                     valid++;
@@ -75,7 +75,7 @@ public class ContactsActivity extends AppCompatActivity {
             public void onFocusChange(View v, boolean hasFocus) {
                 if (name2.getText().length() == 0){
                     name2.setError(getString(R.string.valid_name_empty));
-                } else if (!Pattern.matches("^[^0-9][A-z]+\\s[A-z]+$", name2.getText().toString()) && name2.getText().length() < 5) {    //Must contain no numbers, contain a space, and be over 4 characters long
+                } else if (!Pattern.matches("^[^0-9][A-z]+\\s[A-z]+$", name2.getText().toString())) {    //Must contain no numbers, contain a space, and be over 4 characters long
                     name2.setError(getString(R.string.valid_name_not));
                 } else {
                     valid++;
@@ -87,7 +87,7 @@ public class ContactsActivity extends AppCompatActivity {
             public void onFocusChange(View v, boolean hasFocus) {
                 if (num2.getText().length() == 0){
                     num2.setError(getString(R.string.valid_phone_empty));
-                } else if (num.getText().length() < 10) {                     //Must be 10 digits long
+                } else if (num.getText().length() < 10) {                        //Must be 10 digits long
                     num2.setError(getString(R.string.valid_phone_not));
                 } else {
                     valid++;
@@ -99,7 +99,7 @@ public class ContactsActivity extends AppCompatActivity {
             public void onFocusChange(View v, boolean hasFocus) {
                 if (name3.getText().length() == 0){
                     name3.setError(getString(R.string.valid_name_empty));
-                } else if (!Pattern.matches("^[^0-9][A-z]+\\s[A-z]+$", name3.getText().toString()) && name3.getText().length() < 5) {    //Must contain no numbers, contain a space, and be over 4 characters long
+                } else if (!Pattern.matches("^[^0-9][A-z]+\\s[A-z]+$", name3.getText().toString())) {    //Must contain no numbers, contain a space, and be over 4 characters long
                     name3.setError(getString(R.string.valid_name_not));
                 } else {
                     valid++;
@@ -111,7 +111,7 @@ public class ContactsActivity extends AppCompatActivity {
             public void onFocusChange(View v, boolean hasFocus) {
                 if (num3.getText().length() == 0){
                     num3.setError(getString(R.string.valid_phone_empty));
-                } else if (num3.getText().length() < 10) {                     //Must be 10 digits long
+                } else if (num3.getText().length() < 10) {                        //Must be 10 digits long
                     num3.setError(getString(R.string.valid_phone_not));
                 } else {
                     valid++;
@@ -123,7 +123,7 @@ public class ContactsActivity extends AppCompatActivity {
             public void onFocusChange(View v, boolean hasFocus) {
                 if (name4.getText().length() == 0){
                     name4.setError(getString(R.string.valid_name_empty));
-                } else if (!Pattern.matches("^[^0-9][A-z]+\\s[A-z]+$", name4.getText().toString()) && name4.getText().length() < 5) {    //Must contain no numbers, contain a space, and be over 4 characters long
+                } else if (!Pattern.matches("^[^0-9][A-z]+\\s[A-z]+$", name4.getText().toString())) {    //Must contain no numbers, contain a space, and be over 4 characters long
                     name4.setError(getString(R.string.valid_name_not));
                 } else {
                     valid++;
@@ -135,7 +135,7 @@ public class ContactsActivity extends AppCompatActivity {
             public void onFocusChange(View v, boolean hasFocus) {
                 if (num4.getText().length() == 0){
                     num4.setError(getString(R.string.valid_phone_empty));
-                } else if (num4.getText().length() < 10) {                     //Must be 10 digits long
+                } else if (num4.getText().length() < 10) {                       //Must be 10 digits long
                     num.setError(getString(R.string.valid_phone_not));
                 } else {
                     valid++;
@@ -147,7 +147,7 @@ public class ContactsActivity extends AppCompatActivity {
             public void onFocusChange(View v, boolean hasFocus) {
                 if (name5.getText().length() == 0){
                     name5.setError(getString(R.string.valid_name_empty));
-                } else if (!Pattern.matches("^[^0-9][A-z]+\\s[A-z]+$", name5.getText().toString()) && name5.getText().length() < 5) {    //Must contain no numbers, contain a space, and be over 4 characters long
+                } else if (!Pattern.matches("^[^0-9][A-z]+\\s[A-z]+$", name5.getText().toString())) {    //Must contain no numbers, contain a space, and be over 4 characters long
                     name5.setError(getString(R.string.valid_name_not));
                 } else {
                     valid++;
@@ -159,7 +159,7 @@ public class ContactsActivity extends AppCompatActivity {
             public void onFocusChange(View v, boolean hasFocus) {
                 if (num5.getText().length() == 0){
                     num5.setError(getString(R.string.valid_phone_empty));
-                } else if (num5.getText().length() < 10) {                     //Must be 10 digits long
+                } else if (num5.getText().length() < 10) {                      //Must be 10 digits long
                     num5.setError(getString(R.string.valid_phone_not));
                 } else {
                     valid++;
@@ -183,16 +183,16 @@ public class ContactsActivity extends AppCompatActivity {
                     SharedPreferences.Editor editor = sharedPreferences.edit();
 
                     editor.putString("Contact1_Name", name.getText().toString());
-                    editor.putInt("Contact1_Number", Integer.parseInt(num.getText().toString()));
+                    editor.putString("Contact1_Number", num.getText().toString());//Integer.parseInt(num.getText().toString()));
                     editor.putString("Contact2_Name", name2.getText().toString());
-                    editor.putInt("Contact2_Number", Integer.parseInt(num.getText().toString()));
+                    editor.putString("Contact2_Number", num2.getText().toString());//Integer.parseInt(num.getText().toString()));
                     editor.putString("Contact3_Name", name3.getText().toString());
-                    editor.putInt("Contact3_Number", Integer.parseInt(num3.getText().toString()));
+                    editor.putString("Contact3_Number", num3.getText().toString()); //Integer.parseInt(num3.getText().toString()));
                     editor.putString("Contact4_Name", name4.getText().toString());
-                    editor.putInt("Contact4_Number", Integer.parseInt(num4.getText().toString()));
+                    editor.putString("Contact4_Number", num4.getText().toString());//Integer.parseInt(num4.getText().toString()));
                     editor.putString("Contact5_Name", name5.getText().toString());
-                    editor.putInt("Contact5_Number", Integer.parseInt(num5.getText().toString()));
-                    editor.commit();
+                    editor.putString("Contact5_Number", num5.getText().toString());//Integer.parseInt(num5.getText().toString()));
+                    editor.apply();
                 }
             }
         });

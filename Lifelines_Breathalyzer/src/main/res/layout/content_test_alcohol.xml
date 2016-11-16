@@ -46,6 +46,18 @@
             </FrameLayout>
 
             <Button
+                android:id="@+id/AlcoTest"
+                android:layout_width="match_parent"
+                android:layout_height="150px"
+                android:padding="10px"
+                android:textColor="#ffffff"
+                android:background="@drawable/mybutton"
+                android:text="Begin Alcohol Test"
+                android:layout_weight="1"
+                android:layout_marginTop="50dp"
+                android:layout_above="@+id/HeartTest"/>
+
+            <Button
                 android:id="@+id/HeartTest"
                 android:layout_width="match_parent"
                 android:layout_height="150px"
@@ -59,17 +71,6 @@
                 android:layout_alignParentStart="true"
                 android:layout_marginBottom="32dp" />
 
-            <Button
-                android:id="@+id/AlcoTest"
-                android:layout_width="match_parent"
-                android:layout_height="150px"
-                android:padding="10px"
-                android:textColor="#ffffff"
-                android:background="@drawable/mybutton"
-                android:text="Begin Alcohol Test"
-                android:layout_weight="1"
-                android:layout_marginTop="22dp"
-                android:layout_above="@+id/HeartTest"/>
         </LinearLayout>
     </ScrollView>
 

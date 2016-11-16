@@ -36,15 +36,15 @@ public class CallActivity extends AppCompatActivity {
 
         SharedPreferences sharedPreferences = PreferenceManager.getDefaultSharedPreferences(this);
         String con1_name = sharedPreferences.getString("Contact1_Name", "empty");
-        final int con1_num = sharedPreferences.getInt("Contact1_Number", 0);
+        final String con1_num = sharedPreferences.getString("Contact1_Number", " ");
         String con2_name = sharedPreferences.getString("Contact2_Name", "empty");
-        final int con2_num = sharedPreferences.getInt("Contact2_Number", 0);
+        final String con2_num = sharedPreferences.getString("Contact2_Number", " ");
         String con3_name = sharedPreferences.getString("Contact3_Name", "empty");
-        final int con3_num = sharedPreferences.getInt("Contact3_Number", 0);
+        final String con3_num = sharedPreferences.getString("Contact3_Number", " ");
         String con4_name = sharedPreferences.getString("Contact4_Name", "empty");
-        final int con4_num = sharedPreferences.getInt("Contact4_Number", 0);
+        final String con4_num = sharedPreferences.getString("Contact4_Number", " ");
         String con5_name = sharedPreferences.getString("Contact5_Name", "empty");
-        final int con5_num = sharedPreferences.getInt("Contact5_Number", 0);
+        final String con5_num = sharedPreferences.getString("Contact5_Number", " ");
 
         name1.setText(con1_name + ": " + String.valueOf(con1_num));
         name2.setText(con2_name + ": " + String.valueOf(con2_num));
