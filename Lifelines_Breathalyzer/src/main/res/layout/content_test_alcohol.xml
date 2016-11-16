@@ -13,52 +13,64 @@
     tools:context="com.ceng319.lifelinesbreathalyzer.TestAlcoholActivity"
     tools:showIn="@layout/activity_test_alcohol">
 
-    <Button
-        android:id="@+id/HeartTest"
+    <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="150px"
-        android:padding="10px"
-        android:textColor="#ffffff"
-        android:background="@drawable/mybutton"
-        android:text="Heart Monitor"
-        android:layout_weight="1"
-        android:layout_alignParentBottom="true"
-        android:layout_alignParentStart="true"
-        android:layout_marginBottom="32dp" />
+        android:layout_height="match_parent">
 
-    <FrameLayout
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="31dp"
-        android:layout_centerHorizontal="true">
-        <ImageView
-            android:layout_width="wrap_content"
+        <LinearLayout
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:src="@drawable/meter"
-            android:minHeight="50dp"
-            android:minWidth="50dp"
-            android:layout_gravity="center"/>
+            android:orientation="vertical" >
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="32dp"
-            android:text="0.00Bac"
-            android:layout_gravity="center">
-        </TextView>
+            <FrameLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginTop="31dp"
+                android:layout_centerHorizontal="true">
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:src="@drawable/meter"
+                    android:minHeight="50dp"
+                    android:minWidth="50dp"
+                    android:layout_gravity="center"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="32dp"
+                    android:text="0.00Bac"
+                    android:layout_gravity="center">
+                </TextView>
 
 
-    </FrameLayout>
+            </FrameLayout>
 
-    <Button
-        android:id="@+id/AlcoTest"
-        android:layout_width="406dp"
-        android:layout_height="150px"
-        android:padding="10px"
-        android:textColor="#ffffff"
-        android:background="@drawable/mybutton"
-        android:text="Begin Alcohol Test"
-        android:layout_weight="1"
-        android:layout_marginBottom="22dp"
-        android:layout_above="@+id/HeartTest"/>
+            <Button
+                android:id="@+id/HeartTest"
+                android:layout_width="match_parent"
+                android:layout_height="150px"
+                android:padding="10px"
+                android:textColor="#ffffff"
+                android:background="@drawable/mybutton"
+                android:text="Heart Monitor"
+                android:layout_weight="1"
+                android:layout_marginTop="50dp"
+                android:layout_alignParentBottom="true"
+                android:layout_alignParentStart="true"
+                android:layout_marginBottom="32dp" />
+
+            <Button
+                android:id="@+id/AlcoTest"
+                android:layout_width="match_parent"
+                android:layout_height="150px"
+                android:padding="10px"
+                android:textColor="#ffffff"
+                android:background="@drawable/mybutton"
+                android:text="Begin Alcohol Test"
+                android:layout_weight="1"
+                android:layout_marginTop="22dp"
+                android:layout_above="@+id/HeartTest"/>
+        </LinearLayout>
+    </ScrollView>
 
 </RelativeLayout>

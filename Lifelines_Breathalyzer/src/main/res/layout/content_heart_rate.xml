@@ -13,59 +13,68 @@
     tools:context="com.ceng319.lifelinesbreathalyzer.HeartRateActivity"
     tools:showIn="@layout/activity_heart_rate">
 
-    <FrameLayout
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="32dp"
-        android:layout_alignParentTop="true"
-        android:layout_centerHorizontal="true">
-        <ImageView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:src="@drawable/meter"
-            android:minHeight="50px"
-            android:minWidth="50px"
-            android:layout_gravity="center"
-            android:layout_alignParentStart="true" />
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="32dp"
-            android:text="0.00BPM"
-            android:layout_gravity="center">
-        </TextView>
-
-
-    </FrameLayout>
-    <LinearLayout
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content">
-
-    </LinearLayout>
-
-    <Button
-        android:id="@+id/HeartResults"
+    <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="150px"
-        android:padding="10px"
-        android:textColor="#ffffff"
-        android:background="@drawable/mybutton"
-        android:text="Results"
-        android:layout_weight="1"
-        android:layout_alignParentBottom="true"
-        android:layout_alignParentStart="true"
-        android:layout_marginBottom="32dp" />
+        android:layout_height="match_parent">
 
-    <Button
-        android:id="@+id/HeartTestBegin"
-        android:layout_width="406dp"
-        android:layout_height="150px"
-        android:padding="10px"
-        android:textColor="#ffffff"
-        android:background="@drawable/mybutton"
-        android:text="Begin Heart Monitor"
-        android:layout_weight="1"
-        android:layout_marginBottom="23dp"
-        android:layout_above="@+id/HeartResults"/>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical" >
+
+            <FrameLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginTop="32dp"
+
+                android:layout_alignParentTop="true"
+                android:layout_centerHorizontal="true">
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:src="@drawable/meter"
+                    android:minHeight="50px"
+                    android:minWidth="50px"
+                    android:layout_gravity="center"
+                    android:layout_alignParentStart="true" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="32dp"
+                    android:text="0.00BPM"
+                    android:layout_gravity="center">
+                </TextView>
+
+
+            </FrameLayout>
+
+            <Button
+                android:id="@+id/HeartTestBegin"
+                android:layout_width="match_parent"
+                android:layout_height="150px"
+                android:padding="10px"
+                android:textColor="#ffffff"
+                android:background="@drawable/mybutton"
+                android:text="Begin Heart Monitor"
+                android:layout_weight="1"
+                android:layout_marginTop="50dp"
+                android:layout_below="@+id/HeartResults"
+                android:layout_alignParentStart="true" />
+
+            <Button
+                android:id="@+id/HeartResults"
+                android:layout_width="match_parent"
+                android:layout_height="150px"
+                android:padding="10px"
+                android:textColor="#ffffff"
+                android:background="@drawable/mybutton"
+                android:layout_below="@+id/frame"
+                android:text="Results"
+                android:layout_weight="1"
+                android:layout_marginTop="50dp"
+                android:layout_alignParentBottom="true"
+                android:layout_alignParentStart="true" />
+        </LinearLayout>
+    </ScrollView>
 
 </RelativeLayout>
