@@ -48,7 +48,6 @@ public class LoginActivity extends AppCompatActivity {
         final EditText passwordEditText = (EditText)findViewById(R.id.loginPassword);
         TextView signup = (TextView)findViewById(R.id.loginSignUp) ;
         Button login = (Button)findViewById(R.id.loginButton);
-        final CheckBox remember = (CheckBox)findViewById(R.id.loginRemember);
 
         signup.setOnClickListener(new View.OnClickListener(){
             public void onClick(View v){
@@ -57,7 +56,7 @@ public class LoginActivity extends AppCompatActivity {
             }
         });
 
-        login.setOnClickListener(new View.OnClickListener(){    //TODO read and validate info from text file to use for testing
+        login.setOnClickListener(new View.OnClickListener(){
             public void onClick(View v){
                 String email = emailEditText.getText().toString();
                 String password = passwordEditText.getText().toString();

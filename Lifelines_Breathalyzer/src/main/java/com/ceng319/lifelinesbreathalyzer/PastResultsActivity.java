@@ -12,7 +12,20 @@ import android.view.MenuItem;
 import android.widget.TextView;
 import android.support.v7.widget.Toolbar;
 
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.database.ChildEventListener;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+
 public class PastResultsActivity extends AppCompatActivity {
+
+    private FirebaseAuth mFirebaseAuth;
+    private FirebaseUser mFirebaseUser;
+    private DatabaseReference mDatabase;
+    private String mUserId;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -21,13 +34,73 @@ public class PastResultsActivity extends AppCompatActivity {
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
-        TextView textScrollable1 = (TextView)findViewById(R.id.PastBAClevels);
-        TextView textScrollable2 = (TextView)findViewById(R.id.PastBPMLevels);
+        mFirebaseAuth = FirebaseAuth.getInstance();
+        mFirebaseUser = mFirebaseAuth.getCurrentUser();
+        mDatabase = FirebaseDatabase.getInstance().getReference();
+
+        final TextView avgBAC = (TextView)findViewById(R.id.AVGBAC);
+        final TextView avgBPM = (TextView)findViewById(R.id.AVGheart);
+        final TextView textScrollable1 = (TextView)findViewById(R.id.PastBAClevels);
+        final TextView textScrollable2 = (TextView)findViewById(R.id.PastBPMLevels);
         //This is to enable scrolling on scrollview
         textScrollable1.setMovementMethod(new ScrollingMovementMethod());
         textScrollable2.setMovementMethod(new ScrollingMovementMethod());
 
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+
+        if (mFirebaseUser != null) {
+            mUserId = mFirebaseUser.getUid();
+
+            // get past BAC levels and display average
+            mDatabase.child("users").child(mUserId).child("pastBAC").addChildEventListener(new ChildEventListener() {
+                @Override
+                public void onChildAdded(DataSnapshot dataSnapshot, String s) {
+                    String pastBAC = (dataSnapshot.getValue(String.class));
+                    textScrollable1.setText(pastBAC);
+                    convertStringToArray(pastBAC);
+                    String[] arr = convertStringToArray(pastBAC);
+                    double total = 0;
+                    for (int i = 0; i < arr.length; i++){
+                        total += Double.parseDouble(arr[i]);
+                    }
+                    double avg = total / arr.length;
+                    avgBAC.setText(String.format("%.4f", avg) + "%");
+                }
+                @Override
+                public void onChildChanged(DataSnapshot dataSnapshot, String s) {}
+                @Override
+                public void onChildRemoved(DataSnapshot dataSnapshot) {}
+                @Override
+                public void onChildMoved(DataSnapshot dataSnapshot, String s) {}
+                @Override
+                public void onCancelled(DatabaseError databaseError) {}
+            });
+
+            // get past BPM levels and display average
+            mDatabase.child("users").child(mUserId).child("pastBPM").addChildEventListener(new ChildEventListener() {
+                @Override
+                public void onChildAdded(DataSnapshot dataSnapshot, String s) {
+                    String pastBPM = (dataSnapshot.getValue(String.class));
+                    textScrollable2.setText(pastBPM);
+                    String[] arr = convertStringToArray(pastBPM);
+                    int total = 0;
+                    for (int j = 0; j < arr.length; j++){
+                        total += Integer.parseInt(arr[j]);
+                    }
+                    double avg = total / arr.length;
+                    avgBPM.setText(Double.toString(avg) + " BPM");
+                }
+                @Override
+                public void onChildChanged(DataSnapshot dataSnapshot, String s) {}
+                @Override
+                public void onChildRemoved(DataSnapshot dataSnapshot) {}
+                @Override
+                public void onChildMoved(DataSnapshot dataSnapshot, String s) {}
+                @Override
+                public void onCancelled(DatabaseError databaseError) {}
+            });
+        }
+
     }
 
     @Override
@@ -53,12 +126,11 @@ public class PastResultsActivity extends AppCompatActivity {
     }
 
     // methods to convert arrays to strings and vice versa
-    public static String strSeparator = "__,__";
+    public static String strSeparator = "\\r?\\n";
     public static String convertArrayToString(String[] array){
         String str = "";
         for (int i = 0; i < array.length; i++) {
             str += array[i];
-            // Do not append comma at the end of last element
             if(i < array.length - 1){
                 str += strSeparator;
             }

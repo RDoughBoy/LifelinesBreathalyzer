@@ -231,7 +231,7 @@ public class SignUpActivity extends AppCompatActivity {
         });
 
         Button createAccount = (Button) findViewById(R.id.signupButton);
-        createAccount.setOnClickListener(new View.OnClickListener() {    //TODO write information to text file for testing
+        createAccount.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
                 if (!nameValid || !emailValid || !passValid || !passConfirmValid || !cityValid || !addressValid || !phoneValid) {
                     AlertDialog.Builder dlgAlert = new AlertDialog.Builder(context);
