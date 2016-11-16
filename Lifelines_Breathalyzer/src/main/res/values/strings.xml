@@ -20,6 +20,7 @@
     <string name="login_remember">Remember Me</string>
     <string name="login_invalid">Email or Password is Invalid</string>
     <string name="login_no_user">User Not Found</string>
+    <string name="login_error_message">Email/Password Cannot Be Empty</string>
 
     <string name="signup">Sign Up</string>
     <string name="signup_name">Name: </string>

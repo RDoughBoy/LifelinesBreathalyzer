@@ -11,9 +11,11 @@ import android.database.Cursor;
 import android.icu.text.DateFormat;
 import android.os.Bundle;
 import android.preference.PreferenceManager;
+import android.support.annotation.NonNull;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -22,13 +24,15 @@ import android.widget.CheckBox;
 import android.widget.EditText;
 import android.widget.TextView;
 
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.Task;
+import com.google.firebase.auth.AuthResult;
+import com.google.firebase.auth.FirebaseAuth;
+
 public class LoginActivity extends AppCompatActivity {
 
     Context context = this;
-    private Boolean loginValid = false;
-    private static final String PREFER_NAME = "Login";
-    private static final String REMEMBER = "RememberMe";
-    UserSessionManager session;
+    private FirebaseAuth mFirebaseAuth;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -37,10 +41,11 @@ public class LoginActivity extends AppCompatActivity {
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
-        session = new UserSessionManager(getApplicationContext());
+        // Initialize FirebaseAuth
+        mFirebaseAuth = FirebaseAuth.getInstance();
 
-        final EditText email = (EditText)findViewById(R.id.loginEmail);
-        final EditText pass = (EditText)findViewById(R.id.loginPassword);
+        final EditText emailEditText = (EditText)findViewById(R.id.loginEmail);
+        final EditText passwordEditText = (EditText)findViewById(R.id.loginPassword);
         TextView signup = (TextView)findViewById(R.id.loginSignUp) ;
         Button login = (Button)findViewById(R.id.loginButton);
         final CheckBox remember = (CheckBox)findViewById(R.id.loginRemember);
@@ -52,42 +57,42 @@ public class LoginActivity extends AppCompatActivity {
             }
         });
 
-        final DBAdapter dbEntry = new DBAdapter(this);
-        dbEntry.open();
-
         login.setOnClickListener(new View.OnClickListener(){    //TODO read and validate info from text file to use for testing
             public void onClick(View v){
-                Cursor cursor = dbEntry.searchLogin(email.getText().toString());
-                if (cursor.moveToFirst()) {
-                    do {
-                        if(cursor.getString(0).equalsIgnoreCase(email.getText().toString()) && cursor.getString(1).equalsIgnoreCase(pass.getText().toString())){
-                            loginValid = true;
-                        }
-                    } while (cursor.moveToNext());
-                }
+                String email = emailEditText.getText().toString();
+                String password = passwordEditText.getText().toString();
 
-                if(!loginValid){
-                    AlertDialog.Builder dlgAlert = new AlertDialog.Builder(context);
-                    dlgAlert.setMessage(getString(R.string.login_invalid));
-                    dlgAlert.setTitle(getString(R.string.dialog_error));
-                    dlgAlert.setPositiveButton(getString(R.string.OK), null);
-                    dlgAlert.setCancelable(true);
-                    dlgAlert.create().show();
-                    return;
-                }
+                email = email.trim();
+                password = password.trim();
 
-                SharedPreferences sharedPreferences = getSharedPreferences(PREFER_NAME, 0);
-                SharedPreferences.Editor editor = sharedPreferences.edit();
-
-                if(remember.isChecked()){
-                    editor.putBoolean(REMEMBER, true);
+                if (email.isEmpty() || password.isEmpty()) {
+                    AlertDialog.Builder builder = new AlertDialog.Builder(LoginActivity.this);
+                    builder.setMessage(R.string.login_error_message)
+                            .setTitle(R.string.dialog_error)
+                            .setPositiveButton(android.R.string.ok, null);
+                    AlertDialog dialog = builder.create();
+                    dialog.show();
                 } else {
-                    editor.putBoolean(REMEMBER, false);
+                    mFirebaseAuth.signInWithEmailAndPassword(email, password)
+                            .addOnCompleteListener(LoginActivity.this, new OnCompleteListener<AuthResult>() {
+                                @Override
+                                public void onComplete(@NonNull Task<AuthResult> task) {
+                                    if (task.isSuccessful()) {
+                                        Intent intent = new Intent(LoginActivity.this, MainActivity.class);
+                                        intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+                                        intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK);
+                                        startActivity(intent);
+                                    } else {
+                                        AlertDialog.Builder builder = new AlertDialog.Builder(LoginActivity.this);
+                                        builder.setMessage(task.getException().getMessage())
+                                                .setTitle(R.string.dialog_error)
+                                                .setPositiveButton(android.R.string.ok, null);
+                                        AlertDialog dialog = builder.create();
+                                        dialog.show();
+                                    }
+                                }
+                            });
                 }
-
-                session.createUserLoginSession(email.getText().toString(), pass.getText().toString());
-                Intent intent = new Intent(LoginActivity.this, MainActivity.class);
-                startActivity(intent);
             }
         });
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);

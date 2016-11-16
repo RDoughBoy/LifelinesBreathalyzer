@@ -18,11 +18,15 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.Button;
 
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
+
 import java.util.HashMap;
 
 public class MainActivity extends AppCompatActivity {
 
-    UserSessionManager session;
+    private FirebaseAuth mFirebaseAuth;
+    private FirebaseUser mFirebaseUser;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -31,7 +35,9 @@ public class MainActivity extends AppCompatActivity {
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
-        session = new UserSessionManager(getApplicationContext());
+        // Initialize Firebase Auth
+        mFirebaseAuth = FirebaseAuth.getInstance();
+        mFirebaseUser = mFirebaseAuth.getCurrentUser();
 
         Button button_test = (Button) findViewById(R.id.BeginTest);
 
@@ -43,24 +49,36 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
-        Button button_login = (Button) findViewById(R.id.Log);
+        final Button button_login = (Button) findViewById(R.id.Log);
 
-        button_login.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(MainActivity.this, LoginActivity.class);
-                startActivity(intent);
-            }
-        });
-    }
-
-    /*@Override
-    protected void onStart(){
-        super.onStart();
-        if(!session.rememberMe()){
-            session.logoutUser();
+        // set button to logout if user is logged in
+        if (mFirebaseUser != null) {
+            button_login.setText("Logout");
+            button_login.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    mFirebaseAuth.signOut();
+                    button_login.setText("Login");
+                    button_login.setOnClickListener(new View.OnClickListener() {
+                        @Override
+                        public void onClick(View v) {
+                            Intent intent = new Intent(MainActivity.this, LoginActivity.class);
+                            startActivity(intent);
+                        }
+                    });
+                }
+            });
+        } else {
+            button_login.setText("Login");
+            button_login.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    Intent intent = new Intent(MainActivity.this, LoginActivity.class);
+                    startActivity(intent);
+                }
+            });
         }
-    }*/
+    }
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
