@@ -25,6 +25,7 @@
 
             <Button
                 android:text="@string/allStar"
+                android:background="@drawable/mybutton"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="@dimen/fab_margin"
@@ -32,6 +33,7 @@
 
             <Button
                 android:text="@string/BlueWhite"
+                android:background="@drawable/mybutton"
                 android:layout_width="match_parent"
                 android:layout_marginBottom="@dimen/fab_margin"
                 android:layout_height="wrap_content"
@@ -39,6 +41,7 @@
 
             <Button
                 android:text="@string/Beck"
+                android:background="@drawable/mybutton"
                 android:layout_width="match_parent"
                 android:layout_marginBottom="@dimen/fab_margin"
                 android:layout_height="wrap_content"
@@ -46,6 +49,7 @@
 
             <Button
                 android:text="@string/BlackCab"
+                android:background="@drawable/mybutton"
                 android:layout_marginBottom="@dimen/fab_margin"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"

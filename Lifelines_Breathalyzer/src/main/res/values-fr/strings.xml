@@ -11,11 +11,17 @@
     <string name="title_activity_heart_rate">Fréquence cardiaque</string>
 
     <string name="test">Début du test</string>
+    <string name="OK">D\'accord</string>
 
     <string name="login_email">Email: </string>
     <string name="login_password">Mot de passe: </string>
     <string name="login">Connexion</string>
     <string name="login_signup"> Pas encore membre? Cliquez ici pour vous inscrire </string>
+    <string name= "login_remember"> Se souvenir de moi </string>
+    <string name= "login_invalid"> Email ou mot de passe incorrect </string>
+    <string name= "login_no_user"> Utilisateur introuvable </string>
+    <string name= "login_error_message"> Le mot de passe / mot de passe ne peut pas être vide </string>
+    <string name= "logout"> Déconnexion </string>
 
     <string name = "signup"> Inscrivez-vous </string>
     <string name = "signup_name"> Nom: </string>
@@ -31,6 +37,7 @@
     <string name = "signup_learners"> Permis de l\'apprenant </string>
     <string name = "signup_probationary"> Licence probatoire </string>
     <string name = "signup_full"> Licence complète </string>
+    <string name = "signup_email_error"> Email déjà pris </string>
 
     <string name = "valid_name_empty"> Le nom ne peut pas être vide </string>
     <string name = "valid_name_not"> Nom non valide </string>
@@ -50,6 +57,12 @@
     <string name = "dialog_invalid"> 1 ou plusieurs champs sont invalides </string>
     <string name = "dialog_error"> Erreur </string>
 
+
+    <string name = "dialog_exit"> Voulez-vous vraiment quitter? </string>
+    <string name = "dialog_exit_title"> Êtes-vous sûr? </string>
+    <string name = "dialog_yes"> Oui </string>
+    <string name = "dialog_no"> Non </string>
+
     <string name = "callPage"> Appeler un ami </string>
     <string name = "callTaxi"> Appeler un taxi </string>
     <string name = "findHotel"> Trouver un hôtel </string>
@@ -58,4 +71,34 @@
     <string name = "averageHeart"> Fréquence cardiaque moyenne </string>
     <string name = "pastBAC"> Niveaux passés de BAC </string>
     <string name = "pastBPM"> Niveaux antérieurs de BPM </string>
+    <string name="title_activity_taxi">TaxiActivité</string>
+
+    <string name = "title_activity_contacts"> ContactsActivité </string>
+
+    <string name = "Contact"> Contact 1 </string>
+    <string name = "Contact2"> Contact 2 </string>
+    <string name = "Contact3"> Contact 3 </string>
+    <string name = "Contact4"> Contact 4 </string>
+    <string name = "Contact5"> Contact 5 </string>
+    <string name = "PhoneNum"> Téléphone # 1: </string>
+    <string name = "PhoneNum2"> Numéro de téléphone 2: </string>
+    <string name = "PhoneNum3"> Téléphone # 3: </string>
+    <string name = "PhoneNum4"> Téléphone # 4: </string>
+    <string name = "PhoneNum5"> Téléphone # 5: </string>
+    <string name = "Name"> Nom </string>
+    <string name = "ConNum"> Contact 1 Numéro </string>
+    <string name = "ConNum2"> Contact 2 Numéro </string>
+    <string name = "ConNum3"> Contact 3 Numéro </string>
+    <string name = "ConNum4"> Contact 4 Numéro </string>
+    <string name = "ConNum5"> Contact 5 Numéro </string>
+    <string name = "SaveContacts"> Enregistrer les contacts </string>
+
+    <string name = "firebase_users"> utilisateurs </string>
+    <string name = "firebase_name"> nom </string>
+    <string name = "firebase_city"> ville </string>
+    <string name = "firebase_province"> province </string>
+    <string name = "firebase_licence"> licence </string>
+    <string name = "firebase_address"> adresse </string>
+    <string name = "firebase_phone"> téléphone </string>
+
 </resources>
