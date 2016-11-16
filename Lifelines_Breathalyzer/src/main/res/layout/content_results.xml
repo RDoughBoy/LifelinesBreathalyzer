@@ -43,6 +43,7 @@
                     android:text="@string/callPage"
                     android:layout_width="fill_parent"
                     android:layout_height="fill_parent"
+                    android:background="@drawable/mybutton"
                     android:id="@+id/ResultsOption1" />
             </TableRow>
 
@@ -55,6 +56,7 @@
                     android:text="@string/callTaxi"
                     android:layout_width="fill_parent"
                     android:layout_height="fill_parent"
+                    android:background="@drawable/mybutton"
                     android:id="@+id/ResultsOption2" />
             </TableRow>
 
@@ -67,6 +69,7 @@
                     android:text="@string/findHotel"
                     android:layout_width="fill_parent"
                     android:layout_height="fill_parent"
+                    android:background="@drawable/mybutton"
                     android:id="@+id/ResultsOption3" />
             </TableRow>
 
@@ -79,6 +82,7 @@
                     android:text="@string/pastRecords"
                     android:layout_width="fill_parent"
                     android:layout_height="fill_parent"
+                    android:background="@drawable/mybutton"
                     android:id="@+id/ResultsOption4" />
             </TableRow>
         </LinearLayout>

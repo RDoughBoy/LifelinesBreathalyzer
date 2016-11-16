@@ -58,4 +58,22 @@
     <string name="pastBAC">Past BAC Levels</string>
     <string name="pastBPM">Past BPM Levels</string>
     <string name="title_activity_contacts">ContactsActivity</string>
+
+    <string name="Contact">Contact 1</string>
+    <string name="Contact2">Contact 2</string>
+    <string name="Contact3">Contact 3</string>
+    <string name="Contact4">Contact 4</string>
+    <string name="Contact5">Contact 5</string>
+    <string name="PhoneNum">Phone # 1:</string>
+    <string name="PhoneNum2">Phone # 2:</string>
+    <string name="PhoneNum3">Phone # 3:</string>
+    <string name="PhoneNum4">Phone # 4:</string>
+    <string name="PhoneNum5">Phone # 5:</string>
+    <string name="Name">Name</string>
+    <string name="ConNum">Contact 1 Number</string>
+    <string name="ConNum2">Contact 2 Number</string>
+    <string name="ConNum3">Contact 3 Number</string>
+    <string name="ConNum4">Contact 4 Number</string>
+    <string name="ConNum5">Contact 5 Number</string>
+    <string name="SaveContacts">Save Contacts</string>
 </resources>

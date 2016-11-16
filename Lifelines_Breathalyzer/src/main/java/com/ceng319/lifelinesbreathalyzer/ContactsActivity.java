@@ -14,6 +14,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import java.util.regex.Pattern;
 
@@ -193,6 +194,10 @@ public class ContactsActivity extends AppCompatActivity {
                     editor.putString("Contact5_Name", name5.getText().toString());
                     editor.putString("Contact5_Number", num5.getText().toString());//Integer.parseInt(num5.getText().toString()));
                     editor.apply();
+                    Toast.makeText(getApplicationContext(),
+                            "Contacts Saved", Toast.LENGTH_LONG).show();
+                    Intent intent = new Intent(context, MainActivity.class);
+                    startActivity(intent);
                 }
             }
         });
