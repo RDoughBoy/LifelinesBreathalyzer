@@ -30,23 +30,21 @@
                 android:layout_height="match_parent">
 
                 <TextView
-                    android:layout_width="98dp"
                     android:layout_height="wrap_content"
                     android:id="@+id/textView2"
-                    android:layout_weight="0.05"
                     android:textStyle="normal|bold"
-                    android:text="@string/Contact" />
+                    android:text="@string/Contact"
+                    android:layout_width="98dp" />
 
                 <EditText
-                    android:layout_width="wrap_content"
+                    android:layout_width="232dp"
                     android:layout_height="wrap_content"
                     android:inputType="textPersonName"
                     android:ems="10"
                     android:layout_alignParentTop="true"
                     android:layout_alignEnd="@+id/button"
                     android:id="@+id/editText"
-                    android:hint="@string/Name"
-                    android:layout_weight="0.38" />
+                    android:hint="@string/Name" />
             </LinearLayout>
 
             <LinearLayout
