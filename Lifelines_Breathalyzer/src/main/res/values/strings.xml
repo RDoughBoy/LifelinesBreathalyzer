@@ -45,7 +45,8 @@
     <string name="valid_password_check">Password Does Not Match</string>
     <string name="valid_city_empty">City Cannot Be Empty</string>
     <string name="valid_city_not">Invalid City</string>
-
+    <string name="PGrant">Permission Granted</string>
+    <string name="PDecline">Permission Needed To Use Phone</string>
     <string name="dialog_invalid">1 or More Fields Are Invalid</string>
     <string name="dialog_error">Error</string>
 

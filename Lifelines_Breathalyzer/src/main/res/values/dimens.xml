@@ -7,4 +7,5 @@
     <dimen name="pageTitle">50dp</dimen>
     <dimen name="resultsAverage">70dp</dimen>
     <dimen name="resultsAverageSize">30dp</dimen>
+    <dimen name="taxipic">182dp</dimen>
 </resources>

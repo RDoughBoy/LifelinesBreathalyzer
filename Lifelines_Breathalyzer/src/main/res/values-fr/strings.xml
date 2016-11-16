@@ -45,7 +45,8 @@
     <string name = "valid_password_check"> Le mot de passe ne correspond pas </string>
     <string name = "valid_city_empty"> La ville ne peut pas être vide </string>
     <string name = "valid_city_not"> Ville non valide </string>
-
+    <string name="PGrant">Autorisation accordée</string>
+    <string name="PDecline">Permission nécessaire pour utiliser le téléphone</string>
     <string name = "dialog_invalid"> 1 ou plusieurs champs sont invalides </string>
     <string name = "dialog_error"> Erreur </string>
 

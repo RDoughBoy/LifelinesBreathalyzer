@@ -70,7 +70,7 @@ public class ResultsActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 // Search for Hotels in the area
-                Uri gmmIntentUri = Uri.parse("geo:0,0?q=HOTELS");
+                Uri gmmIntentUri = Uri.parse("geo:0,0?q=Hotels");
                 Intent hotelSearch = new Intent(Intent.ACTION_VIEW, gmmIntentUri);
                 hotelSearch.setPackage("com.google.android.apps.maps");
                 startActivity(hotelSearch);
@@ -108,11 +108,11 @@ public class ResultsActivity extends AppCompatActivity {
             case REQUEST_CALL:
             {
                 if (grantResults.length>0&&grantResults[0]==PackageManager.PERMISSION_GRANTED){
-                    Toast.makeText(getApplicationContext(), "Permission Granted!", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(getApplicationContext(), getString(R.string.PGrant), Toast.LENGTH_SHORT).show();
                     //Intent intent = new Intent(ResultsActivity.this, CallActivity.class);
                     //startActivity(intent);
                 } else{
-                    Toast.makeText(getApplicationContext(), "Need Permission To Use The Phone!", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(getApplicationContext(), getString(R.string.PDecline), Toast.LENGTH_SHORT).show();
                 }
             }
         }

@@ -53,7 +53,7 @@
 
             <ImageView
                 android:layout_width="match_parent"
-                android:layout_height="182dp"
+                android:layout_height="@dimen/taxipic"
                 app:srcCompat="@drawable/taxi"
                 android:id="@+id/imageView" />
         </LinearLayout>
