@@ -4,7 +4,13 @@
 
 package com.ceng319.lifelinesbreathalyzer;
 
+import android.Manifest;
 import android.content.Intent;
+import android.content.pm.PackageManager;
+import android.net.Uri;
+import android.support.annotation.NonNull;
+import android.support.v4.app.ActivityCompat;
+import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
@@ -13,8 +19,12 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
+import android.widget.Toast;
 
 public class ResultsActivity extends AppCompatActivity {
+
+
+    private static final int REQUEST_CALL = 1;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -24,13 +34,31 @@ public class ResultsActivity extends AppCompatActivity {
         setSupportActionBar(toolbar);
 
         Button button_call = (Button) findViewById(R.id.ResultsOption1);
+        Button button_taxi = (Button) findViewById(R.id.ResultsOption2);
+        Button button_hotel = (Button) findViewById(R.id.ResultsOption3);
         Button button_past = (Button) findViewById(R.id.ResultsOption4);
 
         button_call.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(ResultsActivity.this, CallActivity.class);
-                startActivity(intent);
+                if (ContextCompat.checkSelfPermission(ResultsActivity.this, Manifest.permission.CALL_PHONE) != PackageManager.PERMISSION_GRANTED) {
+                    ActivityCompat.requestPermissions(ResultsActivity.this, new String[]{Manifest.permission.CALL_PHONE}, REQUEST_CALL);
+                } else {
+                    startActivity(intent);
+                }
+            }
+        });
+
+        button_taxi.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(ResultsActivity.this, TaxiActivity.class);
+                if (ContextCompat.checkSelfPermission(ResultsActivity.this, Manifest.permission.CALL_PHONE) != PackageManager.PERMISSION_GRANTED) {
+                    ActivityCompat.requestPermissions(ResultsActivity.this, new String[]{Manifest.permission.CALL_PHONE}, REQUEST_CALL);
+                } else {
+                    startActivity(intent);
+                }
             }
         });
 
@@ -41,6 +69,18 @@ public class ResultsActivity extends AppCompatActivity {
                 startActivity(intent);
             }
         });
+
+        button_hotel.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                // Search for Hotels in the area
+                Uri gmmIntentUri = Uri.parse("geo:0,0?q=Hotels");
+                Intent hotelSearch = new Intent(Intent.ACTION_VIEW, gmmIntentUri);
+                hotelSearch.setPackage("com.google.android.apps.maps");
+                startActivity(hotelSearch);
+            }
+        });
+
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
     }
 
@@ -66,20 +106,19 @@ public class ResultsActivity extends AppCompatActivity {
         return super.onOptionsItemSelected(item);
     }
 
-    public static String strSeparator = "__,__";
-    public static String convertArrayToString(String[] array){
-        String str = "";
-        for (int i = 0;i<array.length; i++) {
-            str = str+array[i];
-            // Do not append comma at the end of last element
-            if(i<array.length-1){
-                str = str+strSeparator;
+    @Override
+    public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
+        switch (requestCode){
+            case REQUEST_CALL:
+            {
+                if (grantResults.length>0&&grantResults[0]==PackageManager.PERMISSION_GRANTED){
+                    Toast.makeText(getApplicationContext(), getString(R.string.PGrant), Toast.LENGTH_SHORT).show();
+                    //Intent intent = new Intent(ResultsActivity.this, CallActivity.class);
+                    //startActivity(intent);
+                } else{
+                    Toast.makeText(getApplicationContext(), getString(R.string.PDecline), Toast.LENGTH_SHORT).show();
+                }
             }
         }
-        return str;
-    }
-    public static String[] convertStringToArray(String str){
-        String[] arr = str.split(strSeparator);
-        return arr;
     }
 }

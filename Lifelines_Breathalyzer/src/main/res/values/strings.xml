@@ -60,8 +60,8 @@
     <string name="valid_password_check">Password Does Not Match</string>
     <string name="valid_city_empty">City Cannot Be Empty</string>
     <string name="valid_city_not">Invalid City</string>
-
-
+    <string name="PGrant">Permission Granted</string>
+    <string name="PDecline">Permission Needed To Use Phone</string>
     <string name="dialog_invalid">1 or More Fields Are Invalid</string>
     <string name="dialog_error">Error</string>
 
@@ -78,4 +78,10 @@
     <string name="averageHeart">Average Heart Rate</string>
     <string name="pastBAC">Past BAC Levels</string>
     <string name="pastBPM">Past BPM Levels</string>
+    <string name="title_activity_taxi">TaxiActivity</string>
+
+    <string name="allStar">All Star Taxi</string>
+    <string name="Beck">Beck Taxi</string>
+    <string name="BlackCab">Black Cab</string>
+    <string name="BlueWhite">Blue and White</string>
 </resources>
