@@ -6,7 +6,7 @@
     android:layout_height="match_parent"
     android:fitsSystemWindows="true"
     android:background="@color/colorBackground"
-    tools:context="com.ceng319.lifelinesbreathalyzer.CallActivity">
+    tools:context="com.ceng319.lifelinesbreathalyzer.ContactsActivity">
 
     <android.support.design.widget.AppBarLayout
         android:layout_width="match_parent"
@@ -22,6 +22,6 @@
 
     </android.support.design.widget.AppBarLayout>
 
-    <include layout="@layout/content_call" />
+    <include layout="@layout/content_contacts" />
 
 </android.support.design.widget.CoordinatorLayout>
