@@ -32,7 +32,7 @@ public class ContactsActivity extends AppCompatActivity {
 
         SharedPreferences sharedPreferences = PreferenceManager
                 .getDefaultSharedPreferences(this);
-     //   sharedPreferences.edit().clear().commit();
+       // sharedPreferences.edit().clear().commit();
         SharedPreferences.Editor editor = sharedPreferences.edit();
         Button submit = (Button)findViewById(R.id.button);
 

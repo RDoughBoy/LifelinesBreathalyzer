@@ -103,4 +103,8 @@
     <string name="ConNum4">Contact 4 Number</string>
     <string name="ConNum5">Contact 5 Number</string>
     <string name="SaveContacts">Save Contacts</string>
+    <string name="HeartMon">Heart Monitor</string>
+    <string name="BegAlco">Begin Alcohol Test</string>
+    <string name="Res">Results</string>
+    <string name="BegHeart">Begin Heart Monitor</string>
 </resources>

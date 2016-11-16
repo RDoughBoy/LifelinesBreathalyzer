@@ -38,7 +38,7 @@ tools:showIn="@layout/activity_main">
             <Button
                 android:id="@+id/BeginTest"
                 android:layout_width="match_parent"
-                android:layout_height="150px"
+                android:layout_height="70dp"
                 android:padding="10px"
                 android:textColor="@color/black"
                 android:background="@drawable/mybutton"
@@ -52,7 +52,7 @@ tools:showIn="@layout/activity_main">
             <Button
                 android:id="@+id/Log"
                 android:layout_width="match_parent"
-                android:layout_height="150px"
+                android:layout_height="70dp"
                 android:padding="10px"
                 android:textColor="@color/black"
                 android:background="@drawable/mybutton"
