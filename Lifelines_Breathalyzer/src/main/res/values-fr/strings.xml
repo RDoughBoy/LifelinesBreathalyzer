@@ -71,9 +71,9 @@
     <string name = "averageHeart"> Fréquence cardiaque moyenne </string>
     <string name = "pastBAC"> Niveaux passés de BAC </string>
     <string name = "pastBPM"> Niveaux antérieurs de BPM </string>
-    <string name="title_activity_taxi">TaxiActivité</string>
+    <string name="title_activity_taxi">Appellez un taxi</string>
 
-    <string name = "title_activity_contacts"> ContactsActivité </string>
+    <string name = "title_activity_contacts"> Appelle un ami </string>
 
     <string name = "Contact"> Contact 1 </string>
     <string name = "Contact2"> Contact 2 </string>
@@ -92,13 +92,5 @@
     <string name = "ConNum4"> Contact 4 Numéro </string>
     <string name = "ConNum5"> Contact 5 Numéro </string>
     <string name = "SaveContacts"> Enregistrer les contacts </string>
-
-    <string name = "firebase_users"> utilisateurs </string>
-    <string name = "firebase_name"> nom </string>
-    <string name = "firebase_city"> ville </string>
-    <string name = "firebase_province"> province </string>
-    <string name = "firebase_licence"> licence </string>
-    <string name = "firebase_address"> adresse </string>
-    <string name = "firebase_phone"> téléphone </string>
 
 </resources>

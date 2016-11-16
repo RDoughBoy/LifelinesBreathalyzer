@@ -52,8 +52,9 @@ public class TestAlcoholActivity extends AppCompatActivity {
         int id = item.getItemId();
 
         //noinspection SimplifiableIfStatement
-        if (id == R.id.action_help) {
-            return true;
+        if(id == R.id.action_contacts) {
+            Intent intent = new Intent(this, ContactsActivity.class);
+            startActivity(intent);
         }
 
         return super.onOptionsItemSelected(item);

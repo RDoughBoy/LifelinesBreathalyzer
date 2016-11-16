@@ -4,6 +4,7 @@
 
 package com.ceng319.lifelinesbreathalyzer;
 
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.text.method.ScrollingMovementMethod;
@@ -137,8 +138,9 @@ public class PastResultsActivity extends AppCompatActivity {
         int id = item.getItemId();
 
         //noinspection SimplifiableIfStatement
-        if (id == R.id.action_help) {
-            return true;
+        if(id == R.id.action_contacts) {
+            Intent intent = new Intent(this, ContactsActivity.class);
+            startActivity(intent);
         }
 
         return super.onOptionsItemSelected(item);

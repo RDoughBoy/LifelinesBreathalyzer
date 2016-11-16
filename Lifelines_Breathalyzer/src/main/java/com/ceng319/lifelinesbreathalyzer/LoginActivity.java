@@ -106,6 +106,7 @@ public class LoginActivity extends AppCompatActivity {
                                         .setPositiveButton(android.R.string.ok, null);
                                 AlertDialog dialog = builder.create();
                                 dialog.show();
+                                progressBar.setVisibility(ProgressBar.INVISIBLE);
                             }
                         }
                     });
@@ -135,8 +136,9 @@ public class LoginActivity extends AppCompatActivity {
         int id = item.getItemId();
 
         //noinspection SimplifiableIfStatement
-        if (id == R.id.action_help) {
-            return true;
+        if(id == R.id.action_contacts) {
+            Intent intent = new Intent(this, ContactsActivity.class);
+            startActivity(intent);
         }
 
         return super.onOptionsItemSelected(item);

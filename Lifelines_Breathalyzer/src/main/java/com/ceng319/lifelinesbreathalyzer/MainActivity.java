@@ -97,9 +97,7 @@ public class MainActivity extends AppCompatActivity {
         int id = item.getItemId();
 
         //noinspection SimplifiableIfStatement
-        if (id == R.id.action_help) {
-            return true;
-        } else if(id == R.id.action_contacts) {
+        if(id == R.id.action_contacts) {
             Intent intent = new Intent(this, ContactsActivity.class);
             startActivity(intent);
         }

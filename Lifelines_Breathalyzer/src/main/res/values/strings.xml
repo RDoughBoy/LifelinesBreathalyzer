@@ -69,6 +69,7 @@
     <string name="dialog_exit_title">Are You Sure?</string>
     <string name="dialog_yes">Yes</string>
     <string name="dialog_no">No</string>
+    <string name="dialog_configure_contacts">Please configure your contacts</string>
 
     <string name="callPage">Call a Friend</string>
     <string name="callTaxi">Call a taxi</string>
@@ -86,6 +87,7 @@
     <string name="BlueWhite">Blue and White</string>
     <string name="title_activity_contacts">ContactsActivity</string>
 
+    <string name="configure_contacts">Configure Contacts</string>
     <string name="Contact">Contact 1</string>
     <string name="Contact2">Contact 2</string>
     <string name="Contact3">Contact 3</string>
