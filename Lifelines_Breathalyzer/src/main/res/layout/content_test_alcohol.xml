@@ -48,11 +48,11 @@
             <Button
                 android:id="@+id/AlcoTest"
                 android:layout_width="match_parent"
-                android:layout_height="150px"
+                android:layout_height="70dp"
                 android:padding="10px"
                 android:textColor="#000000"
                 android:background="@drawable/mybutton"
-                android:text="Begin Alcohol Test"
+                android:text="@string/BegAlco"
                 android:layout_weight="1"
                 android:layout_marginTop="50dp"
                 android:layout_above="@+id/HeartTest"/>
@@ -60,11 +60,11 @@
             <Button
                 android:id="@+id/HeartTest"
                 android:layout_width="match_parent"
-                android:layout_height="150px"
+                android:layout_height="70dp"
                 android:padding="10px"
                 android:textColor="#000000"
                 android:background="@drawable/mybutton"
-                android:text="Heart Monitor"
+                android:text="@string/HeartMon"
                 android:layout_weight="1"
                 android:layout_marginTop="50dp"
                 android:layout_alignParentBottom="true"
