@@ -46,7 +46,7 @@
                 <EditText
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:inputType="textCapSentences|textPersonName"
+                    android:inputType="textCapWords|textPersonName"
                     android:ems="10"
                     android:id="@+id/signupName"
                     tools:ignore="LabelFor" />
@@ -130,7 +130,7 @@
                 <EditText
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
-                    android:inputType="textCapSentences|textPersonName"
+                    android:inputType="textCapWords|textPersonName"
                     android:ems="10"
                     android:id="@+id/signupCity"
                     android:layout_weight="1"
@@ -201,7 +201,7 @@
                 <EditText
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
-                    android:inputType="textCapSentences|textPostalAddress"
+                    android:inputType="textCapWords|textPostalAddress"
                     android:ems="10"
                     android:id="@+id/signupAddress"
                     android:layout_weight="1"

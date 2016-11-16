@@ -94,24 +94,24 @@ public class PastResultsActivity extends AppCompatActivity {
                     String pastBPM = (dataSnapshot.getValue(String.class));
                     textScrollable2.setText(pastBPM);
                     String[] arr = convertStringToArray(pastBPM);
-                    int total = 0;
+                    double total = 0;
                     for (int j = 0; j < arr.length; j++){
                         total += Integer.parseInt(arr[j]);
                     }
                     double avg = total / arr.length;
-                    avgBPM.setText(Double.toString(avg) + " BPM");
+                    avgBPM.setText(String.format("%.2f", avg) + " BPM");
                 }
                 @Override
                 public void onChildChanged(DataSnapshot dataSnapshot, String s) {
                     String pastBPM = (dataSnapshot.getValue(String.class));
                     textScrollable2.setText(pastBPM);
                     String[] arr = convertStringToArray(pastBPM);
-                    int total = 0;
+                    double total = 0;
                     for (int j = 0; j < arr.length; j++){
                         total += Integer.parseInt(arr[j]);
                     }
                     double avg = total / arr.length;
-                    avgBPM.setText(Double.toString(avg) + " BPM");
+                    avgBPM.setText(String.format("%.2f", avg) + " BPM");
                 }
                 @Override
                 public void onChildRemoved(DataSnapshot dataSnapshot) {}
