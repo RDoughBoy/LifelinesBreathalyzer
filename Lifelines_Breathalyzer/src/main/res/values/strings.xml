@@ -21,6 +21,7 @@
     <string name="login_invalid">Email or Password is Invalid</string>
     <string name="login_no_user">User Not Found</string>
     <string name="login_error_message">Email/Password Cannot Be Empty</string>
+    <string name="logout">Logout</string>
 
     <string name="signup">Sign Up</string>
     <string name="signup_name">Name: </string>
@@ -38,6 +39,14 @@
     <string name="signup_full">Full Licence</string>
     <string name="signup_email_error">Email Already Taken</string>
 
+    <string name="firebase_users">users</string>
+    <string name="firebase_name">name</string>
+    <string name="firebase_city">city</string>
+    <string name="firebase_province">province</string>
+    <string name="firebase_licence">licence</string>
+    <string name="firebase_address">address</string>
+    <string name="firebase_phone">phone</string>
+
     <string name="valid_name_empty">Name Cannot Be Empty</string>
     <string name="valid_name_not">Invalid Name</string>
     <string name="valid_email_empty">Email Cannot Be Empty</string>
@@ -52,8 +61,14 @@
     <string name="valid_city_empty">City Cannot Be Empty</string>
     <string name="valid_city_not">Invalid City</string>
 
+
     <string name="dialog_invalid">1 or More Fields Are Invalid</string>
     <string name="dialog_error">Error</string>
+
+    <string name="dialog_exit">Are you sure you want to exit?</string>
+    <string name="dialog_exit_title">Are You Sure?</string>
+    <string name="dialog_yes">Yes</string>
+    <string name="dialog_no">No</string>
 
     <string name="callPage">Call a Friend</string>
     <string name="callTaxi">Call a taxi</string>

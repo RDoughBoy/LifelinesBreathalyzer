@@ -53,12 +53,12 @@ public class MainActivity extends AppCompatActivity {
 
         // set button to logout if user is logged in
         if (mFirebaseUser != null) {
-            button_login.setText("Logout");
+            button_login.setText(getString(R.string.logout));
             button_login.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
                     mFirebaseAuth.signOut();
-                    button_login.setText("Login");
+                    button_login.setText(getString(R.string.login));
                     button_login.setOnClickListener(new View.OnClickListener() {
                         @Override
                         public void onClick(View v) {
@@ -69,7 +69,7 @@ public class MainActivity extends AppCompatActivity {
                 }
             });
         } else {
-            button_login.setText("Login");
+            button_login.setText(getString(R.string.login));
             button_login.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
@@ -106,10 +106,10 @@ public class MainActivity extends AppCompatActivity {
     // Handle the Back Key
     public void onBackPressed() {
         AlertDialog.Builder dlgAlert = new AlertDialog.Builder(this);
-        dlgAlert.setMessage("Are you sure you want to exit?");
-        dlgAlert.setTitle("Are You Sure?");
-        dlgAlert.setNegativeButton("No", null);
-        dlgAlert.setPositiveButton("Yes", new DialogInterface.OnClickListener() {
+        dlgAlert.setMessage(getString(R.string.dialog_exit));
+        dlgAlert.setTitle(getString(R.string.dialog_exit_title));
+        dlgAlert.setNegativeButton(getString(R.string.dialog_no), null);
+        dlgAlert.setPositiveButton(getString(R.string.dialog_yes), new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialog, int which) {
                 dialog.dismiss();

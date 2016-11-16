@@ -85,7 +85,7 @@
                     android:id="@+id/signupPasswordText" />
 
                 <EditText
-                android:layout_width="wrap_content"
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:inputType="textPassword"
                 android:ems="10"
@@ -128,7 +128,7 @@
                     android:id="@+id/signupCityText"/>
 
                 <EditText
-                    android:layout_width="wrap_content"
+                    android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:inputType="textCapSentences|textPersonName"
                     android:ems="10"
@@ -151,7 +151,7 @@
 
                 <TextView
                     android:text="@string/signup_province"
-                    android:layout_width="wrap_content"
+                    android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:id="@+id/signupProvinceText"
                     android:layout_weight="1" />
@@ -199,7 +199,7 @@
                     android:id="@+id/signupAddressText"/>
 
                 <EditText
-                    android:layout_width="wrap_content"
+                    android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:inputType="textCapSentences|textPostalAddress"
                     android:ems="10"
@@ -220,7 +220,7 @@
                     android:id="@+id/signupPhoneText"/>
 
                 <EditText
-                    android:layout_width="wrap_content"
+                    android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:inputType="phone"
                     android:ems="10"

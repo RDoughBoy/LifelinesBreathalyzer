@@ -250,12 +250,12 @@ public class SignUpActivity extends AppCompatActivity {
                                 // add data to the firebase database for the user
                                 mFirebaseUser = mFirebaseAuth.getCurrentUser();
                                 mUserId = mFirebaseUser.getUid();
-                                mDatabase.child("users").child(mUserId).child("name").setValue(name_val.getText().toString());
-                                mDatabase.child("users").child(mUserId).child("city").setValue(city_val.getText().toString());
-                                mDatabase.child("users").child(mUserId).child("province").setValue(province.getSelectedItem().toString());
-                                mDatabase.child("users").child(mUserId).child("licence").setValue(licence.getSelectedItem().toString());
-                                mDatabase.child("users").child(mUserId).child("address").setValue(add_val.getText().toString());
-                                mDatabase.child("users").child(mUserId).child("phone").setValue(phone_val.getText().toString());
+                                mDatabase.child(getString(R.string.firebase_users)).child(mUserId).child(getString(R.string.firebase_name)).setValue(name_val.getText().toString());
+                                mDatabase.child(getString(R.string.firebase_users)).child(mUserId).child(getString(R.string.firebase_city)).setValue(city_val.getText().toString());
+                                mDatabase.child(getString(R.string.firebase_users)).child(mUserId).child(getString(R.string.firebase_province)).setValue(province.getSelectedItem().toString());
+                                mDatabase.child(getString(R.string.firebase_users)).child(mUserId).child(getString(R.string.firebase_licence)).setValue(licence.getSelectedItem().toString());
+                                mDatabase.child(getString(R.string.firebase_users)).child(mUserId).child(getString(R.string.firebase_address)).setValue(add_val.getText().toString());
+                                mDatabase.child(getString(R.string.firebase_users)).child(mUserId).child(getString(R.string.firebase_phone)).setValue(phone_val.getText().toString());
 
                                 // go to main
                                 Intent intent = new Intent(SignUpActivity.this, MainActivity.class);

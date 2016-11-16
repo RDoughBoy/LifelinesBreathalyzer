@@ -11,7 +11,6 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.TextView;
 import android.support.v7.widget.Toolbar;
-
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.ChildEventListener;
@@ -28,7 +27,7 @@ public class PastResultsActivity extends AppCompatActivity {
     private String mUserId;
 
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
+    protected void onCreate(Bundle savedInstanceState) {  //TODO Local DB for when user is logged out
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_past_results);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
@@ -67,7 +66,18 @@ public class PastResultsActivity extends AppCompatActivity {
                     avgBAC.setText(String.format("%.4f", avg) + "%");
                 }
                 @Override
-                public void onChildChanged(DataSnapshot dataSnapshot, String s) {}
+                public void onChildChanged(DataSnapshot dataSnapshot, String s) {
+                    String pastBAC = (dataSnapshot.getValue(String.class));
+                    textScrollable1.setText(pastBAC);
+                    convertStringToArray(pastBAC);
+                    String[] arr = convertStringToArray(pastBAC);
+                    double total = 0;
+                    for (int i = 0; i < arr.length; i++){
+                        total += Double.parseDouble(arr[i]);
+                    }
+                    double avg = total / arr.length;
+                    avgBAC.setText(String.format("%.4f", avg) + "%");
+                }
                 @Override
                 public void onChildRemoved(DataSnapshot dataSnapshot) {}
                 @Override
@@ -91,7 +101,17 @@ public class PastResultsActivity extends AppCompatActivity {
                     avgBPM.setText(Double.toString(avg) + " BPM");
                 }
                 @Override
-                public void onChildChanged(DataSnapshot dataSnapshot, String s) {}
+                public void onChildChanged(DataSnapshot dataSnapshot, String s) {
+                    String pastBPM = (dataSnapshot.getValue(String.class));
+                    textScrollable2.setText(pastBPM);
+                    String[] arr = convertStringToArray(pastBPM);
+                    int total = 0;
+                    for (int j = 0; j < arr.length; j++){
+                        total += Integer.parseInt(arr[j]);
+                    }
+                    double avg = total / arr.length;
+                    avgBPM.setText(Double.toString(avg) + " BPM");
+                }
                 @Override
                 public void onChildRemoved(DataSnapshot dataSnapshot) {}
                 @Override
@@ -100,7 +120,6 @@ public class PastResultsActivity extends AppCompatActivity {
                 public void onCancelled(DatabaseError databaseError) {}
             });
         }
-
     }
 
     @Override
