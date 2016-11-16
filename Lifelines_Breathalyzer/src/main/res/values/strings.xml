@@ -57,4 +57,10 @@
     <string name="averageHeart">Average Heart Rate</string>
     <string name="pastBAC">Past BAC Levels</string>
     <string name="pastBPM">Past BPM Levels</string>
+    <string name="title_activity_taxi">TaxiActivity</string>
+
+    <string name="allStar">All Star Taxi</string>
+    <string name="Beck">Beck Taxi</string>
+    <string name="BlackCab">Black Cab</string>
+    <string name="BlueWhite">Blue and White</string>
 </resources>
