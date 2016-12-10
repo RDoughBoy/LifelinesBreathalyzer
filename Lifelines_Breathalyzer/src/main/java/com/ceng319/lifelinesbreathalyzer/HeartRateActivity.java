@@ -26,11 +26,20 @@ public class HeartRateActivity extends AppCompatActivity {
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
         Button button_test = (Button) findViewById(R.id.HeartResults);
+        Button alcohol = (Button) findViewById(R.id.AlcTest);
 
         button_test.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(HeartRateActivity.this, ResultsActivity.class);
+                startActivity(intent);
+            }
+        });
+
+        alcohol.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(HeartRateActivity.this, TestAlcoholActivity.class);
                 startActivity(intent);
             }
         });

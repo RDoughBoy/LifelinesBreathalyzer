@@ -27,11 +27,20 @@ public class TestAlcoholActivity extends AppCompatActivity {
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
         Button button_test = (Button) findViewById(R.id.HeartTest);
+        Button button = (Button) findViewById(R.id.AlcRes);
 
         button_test.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(TestAlcoholActivity.this, HeartRateActivity.class);
+                startActivity(intent);
+            }
+        });
+
+        button.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(TestAlcoholActivity.this, ResultsActivity.class);
                 startActivity(intent);
             }
         });

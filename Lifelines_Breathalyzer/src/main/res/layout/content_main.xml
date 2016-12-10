@@ -14,16 +14,41 @@ app:layout_behavior="@string/appbar_scrolling_view_behavior"
 tools:context="com.ceng319.lifelinesbreathalyzer.MainActivity"
 tools:showIn="@layout/activity_main">
 
-    <ScrollView
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_alignParentTop="true"
-        android:layout_alignParentStart="true">
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="vertical" >
+            android:orientation="vertical"
+            android:gravity="center">
+
+            <Button
+                android:id="@+id/mainAtest"
+                android:layout_width="match_parent"
+                android:layout_height="70dp"
+                android:padding="10px"
+                android:textColor="@color/black"
+                android:background="@drawable/mybutton"
+                android:layout_below="@+id/logo"
+                android:text="@string/title_activity_test_alcohol"
+                android:layout_centerVertical="true"
+                android:layout_alignParentStart="true"
+                android:textStyle="normal|bold" />
+
+            <Button
+                android:id="@+id/mainH"
+                android:layout_width="match_parent"
+                android:layout_height="70dp"
+                android:padding="10px"
+                android:textColor="@color/black"
+                android:background="@drawable/mybutton"
+                android:text="@string/HeartMon"
+                android:layout_below="@+id/BeginTest"
+                android:layout_alignParentStart="true"
+
+                android:layout_marginTop="10dp"
+                android:layout_alignParentEnd="true"
+                android:textStyle="normal|bold"
+                android:layout_marginBottom="10dp"/>
 
             <ImageView
                 android:layout_width="match_parent"
@@ -36,17 +61,16 @@ tools:showIn="@layout/activity_main">
                 android:layout_alignParentStart="true" />
 
             <Button
-                android:id="@+id/BeginTest"
+                android:id="@+id/Results"
                 android:layout_width="match_parent"
                 android:layout_height="70dp"
                 android:padding="10px"
                 android:textColor="@color/black"
                 android:background="@drawable/mybutton"
-                android:layout_below="@+id/logo"
-                android:text="@string/test"
-                android:layout_marginTop="50dp"
-                android:layout_centerVertical="true"
+                android:text="@string/title_activity_past_results"
+                android:layout_below="@+id/BeginTest"
                 android:layout_alignParentStart="true"
+                android:layout_alignParentEnd="true"
                 android:textStyle="normal|bold" />
 
             <Button
@@ -59,11 +83,8 @@ tools:showIn="@layout/activity_main">
                 android:text="@string/login"
                 android:layout_below="@+id/BeginTest"
                 android:layout_alignParentStart="true"
-
-                android:layout_marginTop="60dp"
+                android:layout_marginTop="10dp"
                 android:layout_alignParentEnd="true"
                 android:textStyle="normal|bold" />
         </LinearLayout>
-    </ScrollView>
-
 </RelativeLayout>

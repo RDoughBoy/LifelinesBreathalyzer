@@ -22,39 +22,27 @@
             android:layout_height="wrap_content"
             android:orientation="vertical" >
 
-            <FrameLayout
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_centerHorizontal="true">
-                <ImageView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:src="@drawable/meter"
-                    android:minHeight="50dp"
-                    android:minWidth="50dp"
-                    android:layout_gravity="center"/>
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="32dp"
-                    android:text="0.00Bac"
-                    android:layout_gravity="center">
-                </TextView>
-
-
-            </FrameLayout>
-
             <Button
                 android:id="@+id/AlcoTest"
                 android:layout_width="match_parent"
-                android:layout_height="70dp"
+                android:layout_height="100dp"
                 android:padding="10px"
                 android:textColor="#000000"
                 android:background="@drawable/mybutton"
                 android:text="@string/BegAlco"
                 android:layout_weight="1"
-                android:layout_marginTop="30dp"
+                android:layout_marginBottom="30dp"
                 android:layout_above="@+id/HeartTest"/>
+
+            <TextView
+                android:text="0.00 BAC"
+                android:layout_width="match_parent"
+                android:textSize="@dimen/pageTitle"
+                android:gravity="center"
+                android:layout_height="200dp"
+                android:id="@+id/ResultsTXTmsg"
+                android:background="@drawable/border_style"/>
+
 
             <Button
                 android:id="@+id/HeartTest"

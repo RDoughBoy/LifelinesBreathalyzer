@@ -41,12 +41,30 @@ public class MainActivity extends AppCompatActivity {
         mFirebaseAuth = FirebaseAuth.getInstance();
         mFirebaseUser = mFirebaseAuth.getCurrentUser();
 
-        Button button_test = (Button) findViewById(R.id.BeginTest);
+        Button button_test = (Button) findViewById(R.id.mainAtest);
+        Button heart = (Button) findViewById(R.id.mainH);
+        Button results = (Button) findViewById(R.id.Results);
 
         button_test.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(MainActivity.this, TestAlcoholActivity.class);
+                startActivity(intent);
+            }
+        });
+
+        heart.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(MainActivity.this, HeartRateActivity.class);
+                startActivity(intent);
+            }
+        });
+
+        results.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(MainActivity.this, PastResultsActivity.class);
                 startActivity(intent);
             }
         });
