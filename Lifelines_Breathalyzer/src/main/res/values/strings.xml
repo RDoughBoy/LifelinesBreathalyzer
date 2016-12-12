@@ -89,6 +89,11 @@
     <string name="BlueWhite">Blue and White</string>
     <string name="title_activity_contacts">ContactsActivity</string>
 
+    <string name="call_tel">tel:</string>
+    <string name="title_activity_contacts">ContactsActivity</string>
+
+
+
     <string name="configure_contacts">Configure Contacts</string>
     <string name="Contact">Contact 1</string>
     <string name="Contact2">Contact 2</string>

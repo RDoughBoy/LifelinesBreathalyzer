@@ -69,7 +69,7 @@ public class CallActivity extends AppCompatActivity {
 
         name1.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
-                Intent intent = new Intent(Intent.ACTION_CALL, Uri.parse("tel:" + String.valueOf(con1_num)));
+                Intent intent = new Intent(Intent.ACTION_CALL, Uri.parse(getString(R.string.call_tel) + String.valueOf(con1_num)));
                 if (ActivityCompat.checkSelfPermission(context, Manifest.permission.CALL_PHONE) != PackageManager.PERMISSION_GRANTED) {
                     return;
                 }
@@ -78,7 +78,7 @@ public class CallActivity extends AppCompatActivity {
         });
         name2.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
-                Intent intent = new Intent(Intent.ACTION_CALL, Uri.parse("tel:" + String.valueOf(con2_num)));
+                Intent intent = new Intent(Intent.ACTION_CALL, Uri.parse(getString(R.string.call_tel) + String.valueOf(con2_num)));
                 if (ActivityCompat.checkSelfPermission(context, Manifest.permission.CALL_PHONE) != PackageManager.PERMISSION_GRANTED) {
                     return;
                 }
@@ -87,7 +87,7 @@ public class CallActivity extends AppCompatActivity {
         });
         name3.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
-                Intent intent = new Intent(Intent.ACTION_CALL, Uri.parse("tel:" + String.valueOf(con3_num)));
+                Intent intent = new Intent(Intent.ACTION_CALL, Uri.parse(getString(R.string.call_tel) + String.valueOf(con3_num)));
                 if (ActivityCompat.checkSelfPermission(context, Manifest.permission.CALL_PHONE) != PackageManager.PERMISSION_GRANTED) {
                     return;
                 }
@@ -96,7 +96,7 @@ public class CallActivity extends AppCompatActivity {
         });
         name4.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
-                Intent intent = new Intent(Intent.ACTION_CALL, Uri.parse("tel:" + String.valueOf(con4_num)));
+                Intent intent = new Intent(Intent.ACTION_CALL, Uri.parse(getString(R.string.call_tel) + String.valueOf(con4_num)));
                 if (ActivityCompat.checkSelfPermission(context, Manifest.permission.CALL_PHONE) != PackageManager.PERMISSION_GRANTED) {
                     return;
                 }
@@ -105,7 +105,7 @@ public class CallActivity extends AppCompatActivity {
         });
         name5.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
-                Intent intent = new Intent(Intent.ACTION_CALL, Uri.parse("tel:" + String.valueOf(con5_num)));
+                Intent intent = new Intent(Intent.ACTION_CALL, Uri.parse(getString(R.string.call_tel) + String.valueOf(con5_num)));
                 if (ActivityCompat.checkSelfPermission(context, Manifest.permission.CALL_PHONE) != PackageManager.PERMISSION_GRANTED) {
                     return;
                 }
