@@ -4,11 +4,17 @@
 
 package com.ceng319.lifelinesbreathalyzer;
 
+import android.content.ContentProviderOperation;
+import android.content.ContentResolver;
 import android.content.Context;
 import android.content.Intent;
+import android.content.OperationApplicationException;
 import android.content.SharedPreferences;
+import android.database.Cursor;
 import android.os.Bundle;
+import android.os.RemoteException;
 import android.preference.PreferenceManager;
+import android.provider.ContactsContract;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
 import android.support.v7.app.AlertDialog;
@@ -20,6 +26,7 @@ import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import java.util.ArrayList;
 import java.util.regex.Pattern;
 
 public class ContactsActivity extends AppCompatActivity {
@@ -198,13 +205,68 @@ public class ContactsActivity extends AppCompatActivity {
                     editor.putString("Contact5_Name", name5.getText().toString());
                     editor.putString("Contact5_Number", num5.getText().toString());//Integer.parseInt(num5.getText().toString()));
                     editor.apply();
+                    createContact(name.getText().toString(),num.getText().toString());
+                    createContact(name2.getText().toString(),num2.getText().toString());
+                    createContact(name3.getText().toString(),num3.getText().toString());
+                    createContact(name4.getText().toString(),num4.getText().toString());
+                    createContact(name5.getText().toString(),num5.getText().toString());
                     Toast.makeText(getApplicationContext(),
                             "Contacts Saved", Toast.LENGTH_LONG).show();
                     Intent intent = new Intent(context, MainActivity.class);
                     startActivity(intent);
+
                 }
             }
         });
+
+    }
+    private void createContact(String name, String phone) {
+        ContentResolver cr = getContentResolver();
+
+        Cursor cur = cr.query(ContactsContract.Contacts.CONTENT_URI,
+                null, null, null, null);
+
+        if (cur.getCount() > 0) {
+            while (cur.moveToNext()) {
+                String existName = cur.getString(cur.getColumnIndex(ContactsContract.Contacts.DISPLAY_NAME));
+                if (existName.contains(name)) {
+                    Toast.makeText(this,"The contact name: " + name + " already exists", Toast.LENGTH_SHORT).show();
+                    return;
+                }
+            }
+        }
+
+        ArrayList<ContentProviderOperation> ops = new ArrayList<ContentProviderOperation>();
+        ops.add(ContentProviderOperation.newInsert(ContactsContract.RawContacts.CONTENT_URI)
+                .withValue(ContactsContract.RawContacts.ACCOUNT_TYPE, "accountname@gmail.com")
+                .withValue(ContactsContract.RawContacts.ACCOUNT_NAME, "com.google")
+                .build());
+        ops.add(ContentProviderOperation.newInsert(ContactsContract.Data.CONTENT_URI)
+                .withValueBackReference(ContactsContract.Data.RAW_CONTACT_ID, 0)
+                .withValue(ContactsContract.Data.MIMETYPE,
+                        ContactsContract.CommonDataKinds.StructuredName.CONTENT_ITEM_TYPE)
+                .withValue(ContactsContract.CommonDataKinds.StructuredName.DISPLAY_NAME, name)
+                .build());
+        ops.add(ContentProviderOperation.newInsert(ContactsContract.Data.CONTENT_URI)
+                .withValueBackReference(ContactsContract.Data.RAW_CONTACT_ID, 0)
+                .withValue(ContactsContract.Data.MIMETYPE,
+                        ContactsContract.CommonDataKinds.Phone.CONTENT_ITEM_TYPE)
+                .withValue(ContactsContract.CommonDataKinds.Phone.NUMBER, phone)
+                .withValue(ContactsContract.CommonDataKinds.Phone.TYPE, ContactsContract.CommonDataKinds.Phone.TYPE_HOME)
+                .build());
+
+
+        try {
+            cr.applyBatch(ContactsContract.AUTHORITY, ops);
+        } catch (RemoteException e) {
+            // TODO Auto-generated catch block
+            e.printStackTrace();
+        } catch (OperationApplicationException e) {
+            // TODO Auto-generated catch block
+            e.printStackTrace();
+        }
+
+        Toast.makeText(this, "Created a new contact with name: " + name + " and Phone No: " + phone, Toast.LENGTH_SHORT).show();
 
     }
 
