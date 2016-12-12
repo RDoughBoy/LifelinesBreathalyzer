@@ -24,12 +24,10 @@
             android:layout_height="wrap_content"
             android:orientation="vertical" >
 
-
             <TextView
                 android:text="@string/pastRecords"
                 android:textAlignment="center"
                 android:textSize="40dp"
-                android:layout_marginTop="10dp"
                 android:textAllCaps="true"
                 android:textStyle="bold"
                 android:layout_width="match_parent"
@@ -38,7 +36,6 @@
 
             <LinearLayout
                 android:orientation="horizontal"
-                android:layout_marginTop="30dp"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent">
 
@@ -67,10 +64,10 @@
                         <TextView
                             android:text="0.00 BAC"
                             android:gravity="center"
-                            android:textSize="@dimen/resultsAverageSize"
+                            android:textSize="25dp"
                             android:layout_width="match_parent"
                             android:layout_marginBottom="15dp"
-                            android:layout_height="@dimen/resultsAverage"
+                            android:layout_height="35dp"
                             android:background="@drawable/border_style"
                             android:id="@+id/AVGBAC" />
 
@@ -79,7 +76,7 @@
                             android:layout_width="match_parent"
                             android:textStyle="normal|bold"
                             android:textSize="18dp"
-                            android:paddingTop="30dp"
+                            android:paddingTop="5dp"
                             android:gravity="center"
                             android:layout_height="wrap_content"
                             android:id="@+id/PastBACtext" />
@@ -89,7 +86,7 @@
                             android:text="0:00BAC\n0:00BAC\n0:00BAC\n0:00BAC\n0:00BAC"
                             android:scrollbars="vertical"
                             android:gravity="center"
-                            android:textSize="20dp"
+                            android:textSize="10dp"
                             android:maxLines="5"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
@@ -124,10 +121,10 @@
                             android:text="000 BPM"
                             android:layout_marginLeft="15dp"
                             android:gravity="center"
-                            android:textSize="@dimen/resultsAverageSize"
+                            android:textSize="25dp"
                             android:layout_width="match_parent"
                             android:layout_marginBottom="15dp"
-                            android:layout_height="@dimen/resultsAverage"
+                            android:layout_height="35dp"
                             android:background="@drawable/border_style"
                             android:id="@+id/AVGheart" />
 
@@ -136,7 +133,7 @@
                             android:layout_width="match_parent"
                             android:textStyle="normal|bold"
                             android:gravity="center"
-                            android:layout_marginTop="30dp"
+                            android:layout_marginTop="5dp"
                             android:textSize="18dp"
                             android:layout_height="wrap_content"
                             android:id="@+id/PastBPMtext" />
@@ -148,7 +145,7 @@
                             android:gravity="center"
                             android:layout_marginLeft="15dp"
                             android:maxLines="5"
-                            android:textSize="20dp"
+                            android:textSize="10dp"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:id="@+id/PastBPMLevels" />

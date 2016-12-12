@@ -24,132 +24,138 @@
             android:layout_height="wrap_content"
             android:orientation="vertical" >
 
-            <TableRow
-                android:paddingTop="@dimen/fab_margin"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent" >
 
-                <TextView
-                    android:text="@string/averageBAC"
-                    android:textStyle="normal|bold"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:id="@+id/AVGbactxt" />
-            </TableRow>
-
-            <TableRow
-                android:layout_width="match_parent"
-                android:layout_height="match_parent" >
-
-                <TextView
-                    android:text="0.00 BAC"
-                    android:gravity="center"
-                    android:textSize="@dimen/resultsAverageSize"
-                    android:layout_width="match_parent"
-                    android:layout_height="@dimen/resultsAverage"
-                    android:background="@drawable/border_style"
-                    android:id="@+id/AVGBAC" />
-            </TableRow>
-
-            <TableRow
-                android:layout_width="match_parent"
-                android:layout_height="match_parent" >
-
-                <TextView
-                    android:text="@string/pastBAC"
-                    android:layout_width="match_parent"
-                    android:textStyle="normal|bold"
-                    android:paddingTop="@dimen/fab_margin"
-                    android:gravity="right"
-                    android:layout_height="wrap_content"
-                    android:id="@+id/PastBACtext" />
-            </TableRow>
-
-            <TableRow
-                android:layout_width="match_parent"
-                android:layout_height="match_parent" >
-
-                <TextView
-                    android:background="@drawable/border_style2"
-                    android:text="Date:0:00BAC\nDate:0:00BAC\nDate:0:00BAC\nDate:0:00BAC\nDate:0:00BAC\nDate:0:00BAC\n"
-                    android:scrollbars="vertical"
-                    android:gravity="center"
-                    android:maxLines="5"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:id="@+id/PastBAClevels" />
-            </TableRow>
-
-            <TableRow
-                android:layout_width="match_parent"
-                android:layout_height="match_parent" >
             <TextView
                 android:text="@string/pastRecords"
                 android:textAlignment="center"
-                android:textSize="@dimen/pageTitle"
-                android:layout_marginTop="20dp"
+                android:textSize="90dp"
+                android:layout_marginTop="10dp"
                 android:textAllCaps="true"
-                android:layout_marginBottom="20dp"
+                android:layout_marginBottom="30dp"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:id="@+id/PastResultsTitle" />
-            </TableRow>
 
-            <TableRow
+            <LinearLayout
+                android:orientation="horizontal"
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:paddingTop="@dimen/fab_margin">
+                android:layout_height="match_parent">
 
-                <TextView
-                    android:text="@string/averageHeart"
-                    android:layout_width="wrap_content"
-                    android:textStyle="normal|bold"
-                    android:layout_height="wrap_content"
-                    android:id="@+id/AVGhearttxt" />
-            </TableRow>
-
-            <TableRow
-                android:layout_width="match_parent"
-                android:layout_height="match_parent" >
-
-                <TextView
-                    android:text="000 BPM"
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
                     android:gravity="center"
-                    android:textSize="@dimen/resultsAverageSize"
+                    android:layout_weight="1">
+
+                    <LinearLayout
+                        android:orientation="vertical"
+                        android:layout_width="match_parent"
+                        android:layout_marginRight="15dp"
+                        android:layout_marginTop="15dp"
+                        android:layout_height="match_parent">
+
+                        <TextView
+                            android:text="@string/averageBAC"
+                            android:textStyle="normal|bold"
+                            android:textSize="30dp"
+                            android:gravity="center"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:id="@+id/AVGbactxt" />
+
+                        <TextView
+                                android:text="0.00 BAC"
+                                android:gravity="center"
+                                android:textSize="@dimen/resultsAverageSize"
+                                android:layout_width="match_parent"
+                                android:layout_marginBottom="15dp"
+                                android:layout_height="@dimen/resultsAverage"
+                                android:background="@drawable/border_style"
+                                android:id="@+id/AVGBAC" />
+
+                        <TextView
+                                android:text="@string/pastBAC"
+                                android:layout_width="match_parent"
+                                android:textStyle="normal|bold"
+                                android:textSize="25dp"
+                                android:paddingTop="50dp"
+                                android:gravity="center"
+                                android:layout_height="wrap_content"
+                                android:id="@+id/PastBACtext" />
+
+                        <TextView
+                                android:background="@drawable/border_style2"
+                                android:text="0:00BAC\n0:00BAC\n0:00BAC\n0:00BAC\n0:00BAC"
+                                android:scrollbars="vertical"
+                                android:gravity="center"
+                                android:textSize="20dp"
+                                android:maxLines="5"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:id="@+id/PastBAClevels" />
+
+                    </LinearLayout>
+                </RelativeLayout>
+
+                <RelativeLayout
                     android:layout_width="match_parent"
-                    android:layout_height="@dimen/resultsAverage"
-                    android:background="@drawable/border_style"
-                    android:id="@+id/AVGheart" />
-            </TableRow>
-
-            <TableRow
-                android:layout_width="match_parent"
-                android:layout_height="match_parent" >
-
-                <TextView
-                    android:text="@string/pastBPM"
-                    android:layout_width="match_parent"
-                    android:textStyle="normal|bold"
-                    android:gravity="right"
-                    android:paddingTop="@dimen/fab_margin"
-                    android:layout_height="wrap_content"
-                    android:id="@+id/PastBPMtext" />
-            </TableRow>
-
-            <TableRow
-                android:layout_width="match_parent"
-                android:layout_height="match_parent" >
-
-                <TextView
-                    android:background="@drawable/border_style2"
-                    android:text="Date:0:00BPM\nDate:0:00BPM\nDate:0:00BPM\nDate:0:00BPM\nDate:0:00BPM\nDate:0:00BPM\n"
-                    android:scrollbars="vertical"
+                    android:layout_height="match_parent"
                     android:gravity="center"
-                    android:maxLines="5"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:id="@+id/PastBPMLevels" />
-            </TableRow>
+                    android:layout_weight="1">
+
+                    <LinearLayout
+                        android:orientation="vertical"
+                        android:layout_width="match_parent"
+                        android:layout_marginTop="15dp"
+                        android:layout_height="match_parent">
+
+                        <TextView
+                                android:text="@string/averageHeart"
+                                android:layout_width="match_parent"
+                                android:textStyle="normal|bold"
+                                android:layout_marginLeft="15dp"
+                                android:gravity="center"
+                                android:textSize="30dp"
+                                android:layout_height="wrap_content"
+                                android:id="@+id/AVGhearttxt" />
+
+                        <TextView
+                                android:text="000 BPM"
+                                android:layout_marginLeft="15dp"
+                                android:gravity="center"
+                                android:textSize="@dimen/resultsAverageSize"
+                                android:layout_width="match_parent"
+                                android:layout_marginBottom="15dp"
+                                android:layout_height="@dimen/resultsAverage"
+                                android:background="@drawable/border_style"
+                                android:id="@+id/AVGheart" />
+
+                        <TextView
+                            android:text="@string/pastBPM"
+                            android:layout_width="match_parent"
+                            android:textStyle="normal|bold"
+                            android:gravity="center"
+                            android:layout_marginTop="50dp"
+                            android:textSize="25dp"
+                            android:layout_height="wrap_content"
+                            android:id="@+id/PastBPMtext" />
+
+                        <TextView
+                            android:background="@drawable/border_style2"
+                            android:text="0:00BPM\n0:00BPM\n0:00BPM\n0:00BPM\n0:00BPM"
+                            android:scrollbars="vertical"
+                            android:gravity="center"
+                            android:layout_marginLeft="15dp"
+                            android:maxLines="5"
+                            android:textSize="20dp"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:id="@+id/PastBPMLevels" />
+                    </LinearLayout>
+                </RelativeLayout>
+            </LinearLayout>
+
+
         </LinearLayout>
     </ScrollView>
 </RelativeLayout>

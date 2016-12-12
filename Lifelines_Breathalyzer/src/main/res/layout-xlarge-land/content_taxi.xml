@@ -30,6 +30,7 @@
                     android:background="@drawable/mybutton"
                     android:layout_below="@+id/BlueWhite"
                     android:layout_marginBottom="@dimen/fab_margin"
+                    android:textSize="20dp"
                     android:layout_marginTop="@dimen/resultsAverageSize"
                     android:layout_width="match_parent"
                     android:layout_height="@dimen/bsizexl"
@@ -39,6 +40,7 @@
                     android:text="@string/Beck"
                     android:background="@drawable/mybutton"
                     android:layout_width="match_parent"
+                    android:textSize="20dp"
                     android:layout_marginBottom="@dimen/fab_margin"
 
                     android:layout_height="@dimen/bsizexl"
@@ -48,16 +50,18 @@
                     android:text="@string/BlueWhite"
                     android:background="@drawable/mybutton"
                     android:layout_width="match_parent"
-                android:layout_marginTop="@dimen/resultsAverageSize"
+                    android:layout_marginTop="@dimen/resultsAverageSize"
                     android:layout_below="@+id/AllStar"
                     android:layout_marginBottom="@dimen/fab_margin"
-                android:layout_height="@dimen/bsizexl"
+                    android:textSize="20dp"
+                    android:layout_height="@dimen/bsizexl"
                     android:id="@+id/BlueWhite" />
 
             <Button
                 android:text="@string/allStar"
                 android:background="@drawable/mybutton"
                 android:layout_width="match_parent"
+                android:textSize="20dp"
                 android:layout_height="@dimen/bsizexl"
                 android:layout_marginTop="@dimen/resultsAverageSize"
                 android:layout_marginBottom="@dimen/fab_margin"

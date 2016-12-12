@@ -57,6 +57,7 @@
                         android:layout_width="fill_parent"
                         android:layout_height="@dimen/bsizexl"
                         android:background="@drawable/mybutton"
+                        android:textSize="20dp"
                         android:id="@+id/ResultsOption1" />
                 </TableRow>
 
@@ -70,6 +71,7 @@
                         android:layout_width="fill_parent"
                         android:layout_height="@dimen/bsizexl"
                         android:background="@drawable/mybutton"
+                        android:textSize="20dp"
                         android:id="@+id/ResultsOption2" />
                 </TableRow>
 
@@ -81,6 +83,7 @@
                     <Button
                         android:text="@string/findHotel"
                         android:layout_width="fill_parent"
+                        android:textSize="20dp"
                         android:layout_height="@dimen/bsizexl"
                         android:background="@drawable/mybutton"
                         android:id="@+id/ResultsOption3" />
@@ -94,6 +97,7 @@
                     <Button
                         android:text="@string/pastRecords"
                         android:layout_width="fill_parent"
+                        android:textSize="20dp"
                         android:layout_height="@dimen/bsizexl"
                         android:background="@drawable/mybutton"
                         android:id="@+id/ResultsOption4" />
