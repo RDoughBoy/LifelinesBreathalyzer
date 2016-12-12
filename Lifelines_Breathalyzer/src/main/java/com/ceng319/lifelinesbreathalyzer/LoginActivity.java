@@ -5,8 +5,10 @@
 package com.ceng319.lifelinesbreathalyzer;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.AsyncTask;
 import android.os.Bundle;
+import android.preference.PreferenceManager;
 import android.support.annotation.NonNull;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
@@ -15,6 +17,7 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
+import android.widget.CheckBox;
 import android.widget.EditText;
 import android.widget.ProgressBar;
 import android.widget.TextView;
@@ -32,6 +35,9 @@ public class LoginActivity extends AppCompatActivity {
     EditText passwordEditText;
     TextView signup;
     Button login;
+    CheckBox rememberme;
+    SharedPreferences sharedPreferences;
+    SharedPreferences.Editor editor;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -48,7 +54,11 @@ public class LoginActivity extends AppCompatActivity {
         signup = (TextView)findViewById(R.id.loginSignUp) ;
         login = (Button)findViewById(R.id.loginButton);
         progressBar = (ProgressBar)findViewById(R.id.loginProgressBar);
+        rememberme = (CheckBox)findViewById(R.id.loginRememberCheck);
 
+        sharedPreferences = PreferenceManager
+                .getDefaultSharedPreferences(this);
+        editor = sharedPreferences.edit();
 
         signup.setOnClickListener(new View.OnClickListener(){
             public void onClick(View v){
@@ -95,6 +105,8 @@ public class LoginActivity extends AppCompatActivity {
                         @Override
                         public void onComplete(@NonNull Task<AuthResult> task) {
                             if (task.isSuccessful()) {
+                                editor.putBoolean("Remember_Me", rememberme.isChecked());
+                                editor.commit();
                                 Intent intent = new Intent(LoginActivity.this, MainActivity.class);
                                 intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
                                 intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK);

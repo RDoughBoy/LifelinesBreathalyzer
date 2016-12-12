@@ -8,6 +8,7 @@ import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.text.method.ScrollingMovementMethod;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.TextView;
@@ -48,6 +49,8 @@ public class PastResultsActivity extends AppCompatActivity {
 
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
+
+
         if (mFirebaseUser != null) {
             mUserId = mFirebaseUser.getUid();
 
@@ -60,12 +63,13 @@ public class PastResultsActivity extends AppCompatActivity {
                     convertStringToArray(pastBAC);
                     String[] arr = convertStringToArray(pastBAC);
                     double total = 0;
-                    for (int i = 0; i < arr.length; i++){
+                    for (int i = 0; i < arr.length; i++) {
                         total += Double.parseDouble(arr[i]);
                     }
                     double avg = total / arr.length;
                     avgBAC.setText(String.format("%.4f", avg) + "%");
                 }
+
                 @Override
                 public void onChildChanged(DataSnapshot dataSnapshot, String s) {
                     String pastBAC = (dataSnapshot.getValue(String.class));
@@ -73,18 +77,24 @@ public class PastResultsActivity extends AppCompatActivity {
                     convertStringToArray(pastBAC);
                     String[] arr = convertStringToArray(pastBAC);
                     double total = 0;
-                    for (int i = 0; i < arr.length; i++){
+                    for (int i = 0; i < arr.length; i++) {
                         total += Double.parseDouble(arr[i]);
                     }
                     double avg = total / arr.length;
                     avgBAC.setText(String.format("%.4f", avg) + "%");
                 }
+
                 @Override
-                public void onChildRemoved(DataSnapshot dataSnapshot) {}
+                public void onChildRemoved(DataSnapshot dataSnapshot) {
+                }
+
                 @Override
-                public void onChildMoved(DataSnapshot dataSnapshot, String s) {}
+                public void onChildMoved(DataSnapshot dataSnapshot, String s) {
+                }
+
                 @Override
-                public void onCancelled(DatabaseError databaseError) {}
+                public void onCancelled(DatabaseError databaseError) {
+                }
             });
 
             // get past BPM levels and display average
@@ -95,30 +105,37 @@ public class PastResultsActivity extends AppCompatActivity {
                     textScrollable2.setText(pastBPM);
                     String[] arr = convertStringToArray(pastBPM);
                     double total = 0;
-                    for (int j = 0; j < arr.length; j++){
+                    for (int j = 0; j < arr.length; j++) {
                         total += Integer.parseInt(arr[j]);
                     }
                     double avg = total / arr.length;
                     avgBPM.setText(String.format("%.2f", avg) + " BPM");
                 }
+
                 @Override
                 public void onChildChanged(DataSnapshot dataSnapshot, String s) {
                     String pastBPM = (dataSnapshot.getValue(String.class));
                     textScrollable2.setText(pastBPM);
                     String[] arr = convertStringToArray(pastBPM);
                     double total = 0;
-                    for (int j = 0; j < arr.length; j++){
+                    for (int j = 0; j < arr.length; j++) {
                         total += Integer.parseInt(arr[j]);
                     }
                     double avg = total / arr.length;
                     avgBPM.setText(String.format("%.2f", avg) + " BPM");
                 }
+
                 @Override
-                public void onChildRemoved(DataSnapshot dataSnapshot) {}
+                public void onChildRemoved(DataSnapshot dataSnapshot) {
+                }
+
                 @Override
-                public void onChildMoved(DataSnapshot dataSnapshot, String s) {}
+                public void onChildMoved(DataSnapshot dataSnapshot, String s) {
+                }
+
                 @Override
-                public void onCancelled(DatabaseError databaseError) {}
+                public void onCancelled(DatabaseError databaseError) {
+                }
             });
         }
     }

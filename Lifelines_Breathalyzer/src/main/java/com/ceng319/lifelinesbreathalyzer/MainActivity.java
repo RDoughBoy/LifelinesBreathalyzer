@@ -4,13 +4,13 @@
 
 package com.ceng319.lifelinesbreathalyzer;
 
-import android.Manifest;
+import android.app.Application;
+import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
-import android.support.design.widget.FloatingActionButton;
-import android.support.design.widget.Snackbar;
-import android.support.v4.content.ContextCompat;
+import android.preference.PreferenceManager;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
@@ -29,6 +29,10 @@ public class MainActivity extends AppCompatActivity {
 
     private FirebaseAuth mFirebaseAuth;
     private FirebaseUser mFirebaseUser;
+    SharedPreferences sharedPreferences;
+    static Boolean alreadyExecuted = false;
+    Button button_login;
+    Button button_test;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -39,9 +43,17 @@ public class MainActivity extends AppCompatActivity {
 
         // Initialize Firebase Auth
         mFirebaseAuth = FirebaseAuth.getInstance();
+
+        // execute once when the app starts
+        if(!alreadyExecuted) {
+            checkRememberMe();  // check if remember me is set and logout user if not
+            alreadyExecuted = true;
+        }
+
+        // get Firebase User
         mFirebaseUser = mFirebaseAuth.getCurrentUser();
 
-        Button button_test = (Button) findViewById(R.id.BeginTest);
+        button_test = (Button) findViewById(R.id.BeginTest);
 
         button_test.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -51,7 +63,7 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
-        final Button button_login = (Button) findViewById(R.id.Log);
+        button_login = (Button) findViewById(R.id.Log);
 
         // set button to logout if user is logged in
         if (mFirebaseUser != null) {
@@ -121,4 +133,25 @@ public class MainActivity extends AppCompatActivity {
         });
         dlgAlert.create().show();
     }
+
+    public void checkRememberMe(){
+        boolean checkBoxValue;
+        button_login = (Button) findViewById(R.id.Log);
+        sharedPreferences = PreferenceManager
+                .getDefaultSharedPreferences(this);
+        checkBoxValue = sharedPreferences.getBoolean("Remember_Me", false);
+        if (!checkBoxValue) {
+            mFirebaseAuth.signOut();
+            button_login.setText(getString(R.string.login));
+            button_login.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    Intent intent = new Intent(MainActivity.this, LoginActivity.class);
+                    startActivity(intent);
+                }
+            });
+        }
+    }
 }
+
+
