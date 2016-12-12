@@ -8,4 +8,9 @@
     <dimen name="resultsAverage">70dp</dimen>
     <dimen name="resultsAverageSize">30dp</dimen>
     <dimen name="taxipic">182dp</dimen>
+
+    <!--Tablet Sizes -->
+    <dimen name="bsizexl">80dp</dimen>
+    <dimen name="tp">1000dp</dimen>
+    <dimen name="cs">20dp</dimen>
 </resources>

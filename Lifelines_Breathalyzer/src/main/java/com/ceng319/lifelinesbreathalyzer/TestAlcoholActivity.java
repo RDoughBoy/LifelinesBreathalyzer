@@ -5,9 +5,9 @@
 package com.ceng319.lifelinesbreathalyzer;
 
 import android.content.Intent;
+import android.content.pm.ActivityInfo;
+import android.content.res.Configuration;
 import android.os.Bundle;
-import android.support.design.widget.FloatingActionButton;
-import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
@@ -24,14 +24,29 @@ public class TestAlcoholActivity extends AppCompatActivity {
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
+        //This is used to detect if it is a tablet. Then tells it to be landscape only.
+        int screenSize = getResources().getConfiguration().screenLayout & Configuration.SCREENLAYOUT_SIZE_MASK;
+        if(screenSize == Configuration.SCREENLAYOUT_SIZE_XLARGE){
+            setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_LANDSCAPE);
+        }
+
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
         Button button_test = (Button) findViewById(R.id.HeartTest);
+        Button button = (Button) findViewById(R.id.AlcRes);
 
         button_test.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(TestAlcoholActivity.this, HeartRateActivity.class);
+                startActivity(intent);
+            }
+        });
+
+        button.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(TestAlcoholActivity.this, ResultsActivity.class);
                 startActivity(intent);
             }
         });

@@ -2,7 +2,7 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/content_test_alcohol"
+    android:id="@+id/content_heart_rate"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:paddingBottom="@dimen/activity_vertical_margin"
@@ -10,80 +10,72 @@
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
     app:layout_behavior="@string/appbar_scrolling_view_behavior"
-    tools:context="com.ceng319.lifelinesbreathalyzer.TestAlcoholActivity"
-    tools:showIn="@layout/activity_test_alcohol">
+    tools:context="com.ceng319.lifelinesbreathalyzer.HeartRateActivity"
+    tools:showIn="@layout/activity_heart_rate">
 
     <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentStart="true">
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical" >
 
-            <FrameLayout
+            <Button
+                android:id="@+id/HeartTestBegin"
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_centerHorizontal="true">
-                <ImageView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:src="@drawable/meter"
-                    android:minHeight="50dp"
-                    android:minWidth="50dp"
-                    android:layout_gravity="center"/>
+                android:layout_height="100dp"
+                android:padding="10px"
+                android:textSize="20dp"
+                android:textColor="#000000"
+                android:background="@drawable/mybutton"
+                android:text="@string/BegHeart"
+                android:layout_weight="1"
+                android:layout_marginBottom="30dp"
+                android:layout_below="@+id/HeartResults"
+                android:layout_alignParentStart="true" />
 
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="32dp"
-                    android:text="0.00Bac"
-                    android:layout_gravity="center">
-                </TextView>
+            <TextView
+                android:text="0.00 Beats/Min"
+                android:layout_width="match_parent"
+                android:gravity="center"
+                android:layout_height="200dp"
+                android:textSize="@dimen/pageTitle"
+                android:id="@+id/ResultsTXTmsg"
+                android:background="@drawable/border_style"/>
 
-
-            </FrameLayout>
 
             <Button
-                android:id="@+id/AlcoTest"
+                android:id="@+id/AlcTest"
                 android:layout_width="match_parent"
                 android:layout_height="70dp"
                 android:padding="10px"
                 android:textColor="#000000"
+                android:textSize="20dp"
                 android:background="@drawable/mybutton"
-                android:text="@string/BegAlco"
+                android:text="@string/title_activity_test_alcohol"
                 android:layout_weight="1"
                 android:layout_marginTop="30dp"
-                android:layout_above="@+id/HeartTest"/>
+                android:layout_below="@+id/HeartResults"
+                android:layout_alignParentStart="true" />
 
             <Button
-                android:id="@+id/HeartTest"
+                android:id="@+id/HeartResults"
                 android:layout_width="match_parent"
                 android:layout_height="70dp"
+                android:textSize="20dp"
                 android:padding="10px"
                 android:textColor="#000000"
                 android:background="@drawable/mybutton"
-                android:text="@string/HeartMon"
-                android:layout_weight="1"
-                android:layout_marginTop="30dp"
-                android:layout_alignParentBottom="true"
-                android:layout_alignParentStart="true"
-                android:layout_marginBottom="30dp" />
-
-            <Button
-                android:id="@+id/AlcRes"
-                android:layout_width="match_parent"
-                android:layout_height="70dp"
-                android:textColor="#000000"
-                android:background="@drawable/mybutton"
+                android:layout_below="@+id/frame"
                 android:text="@string/Res"
                 android:layout_weight="1"
+                android:layout_marginTop="30dp"
                 android:layout_alignParentBottom="true"
-                android:layout_alignParentStart="true"
-                android:layout_marginBottom="32dp" />
-
-
-
+                android:layout_alignParentStart="true" />
         </LinearLayout>
     </ScrollView>
 

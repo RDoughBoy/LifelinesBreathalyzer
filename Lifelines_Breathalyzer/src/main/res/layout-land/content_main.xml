@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+xmlns:app="http://schemas.android.com/apk/res-auto"
+xmlns:tools="http://schemas.android.com/tools"
+android:id="@+id/content_main"
+android:layout_width="match_parent"
+android:layout_height="match_parent"
+android:paddingBottom="@dimen/activity_vertical_margin"
+    android:gravity="center"
+android:paddingLeft="@dimen/activity_horizontal_margin"
+android:paddingRight="@dimen/activity_horizontal_margin"
+android:paddingTop="@dimen/activity_vertical_margin"
+app:layout_behavior="@string/appbar_scrolling_view_behavior"
+tools:context="com.ceng319.lifelinesbreathalyzer.MainActivity"
+tools:showIn="@layout/activity_main">
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:gravity="center">
+
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="100dp"
+                android:layout_marginBottom="20dp"
+                android:id="@+id/logo"
+                android:src="@drawable/lifelines_logo"
+                />
+
+            <LinearLayout
+                android:orientation="horizontal"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:gravity="center"
+                    android:layout_weight="1"
+                    android:layout_marginRight="15dp">
+
+                    <Button
+                        android:id="@+id/mainH"
+                        android:layout_width="match_parent"
+                        android:layout_height="60dp"
+                        android:textColor="@color/black"
+                        android:background="@drawable/mybutton"
+                        android:text="@string/HeartMon"
+                        android:layout_below="@+id/mainAtest"
+                        android:textStyle="normal|bold"/>
+
+                    <Button
+                        android:id="@+id/mainAtest"
+                        android:layout_width="match_parent"
+                        android:layout_height="60dp"
+                        android:layout_marginBottom="10dp"
+                        android:textColor="@color/black"
+                        android:background="@drawable/mybutton"
+                        android:text="@string/title_activity_test_alcohol"
+                        android:textStyle="normal|bold" />
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:gravity="center"
+                    android:layout_marginLeft="15dp"
+                    android:layout_weight="1">
+
+                    <Button
+                        android:id="@+id/Results"
+                        android:layout_width="match_parent"
+                        android:layout_height="60dp"
+                        android:textColor="@color/black"
+                        android:background="@drawable/mybutton"
+                        android:layout_marginBottom="10dp"
+                        android:text="@string/title_activity_past_results"
+                        android:textStyle="normal|bold" />
+
+                    <Button
+                        android:id="@+id/Log"
+                        android:layout_width="match_parent"
+                        android:layout_height="60dp"
+                        android:layout_below="@id/Results"
+                        android:textColor="@color/black"
+                        android:background="@drawable/mybutton"
+                        android:text="@string/login"
+                        android:textStyle="normal|bold" />
+                </RelativeLayout>
+            </LinearLayout>
+
+        </LinearLayout>
+</RelativeLayout>

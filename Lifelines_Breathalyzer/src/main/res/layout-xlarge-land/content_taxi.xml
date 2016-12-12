@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/content_taxi"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingBottom="@dimen/activity_vertical_margin"
+    android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingTop="@dimen/activity_vertical_margin"
+    app:layout_behavior="@string/appbar_scrolling_view_behavior"
+    tools:context="com.ceng319.lifelinesbreathalyzer.TaxiActivity"
+    tools:showIn="@layout/activity_taxi">
+
+
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:gravity="center"
+            android:layout_weight="1">
+
+            <Button
+                    android:text="@string/BlackCab"
+                    android:background="@drawable/mybutton"
+                    android:layout_below="@+id/BlueWhite"
+                    android:layout_marginBottom="@dimen/fab_margin"
+                    android:textSize="20dp"
+                    android:layout_marginTop="@dimen/resultsAverageSize"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/bsizexl"
+                    android:id="@+id/BlackCab" />
+
+            <Button
+                    android:text="@string/Beck"
+                    android:background="@drawable/mybutton"
+                    android:layout_width="match_parent"
+                    android:textSize="20dp"
+                    android:layout_marginBottom="@dimen/fab_margin"
+
+                    android:layout_height="@dimen/bsizexl"
+                    android:id="@+id/Beck" />
+
+            <Button
+                    android:text="@string/BlueWhite"
+                    android:background="@drawable/mybutton"
+                    android:layout_width="match_parent"
+                    android:layout_marginTop="@dimen/resultsAverageSize"
+                    android:layout_below="@+id/AllStar"
+                    android:layout_marginBottom="@dimen/fab_margin"
+                    android:textSize="20dp"
+                    android:layout_height="@dimen/bsizexl"
+                    android:id="@+id/BlueWhite" />
+
+            <Button
+                android:text="@string/allStar"
+                android:background="@drawable/mybutton"
+                android:layout_width="match_parent"
+                android:textSize="20dp"
+                android:layout_height="@dimen/bsizexl"
+                android:layout_marginTop="@dimen/resultsAverageSize"
+                android:layout_marginBottom="@dimen/fab_margin"
+                android:layout_below="@+id/Beck"
+                android:id="@+id/AllStar" />
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1">
+
+            <ImageView
+                android:paddingLeft="@dimen/fab_margin"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/tp"
+                app:srcCompat="@drawable/taxi"
+                android:id="@+id/imageView"
+                android:layout_alignParentStart="true" />
+
+        </RelativeLayout>
+
+    </LinearLayout>
+
+</RelativeLayout>

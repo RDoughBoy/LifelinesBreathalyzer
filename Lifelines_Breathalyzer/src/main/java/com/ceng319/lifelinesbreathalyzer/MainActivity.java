@@ -7,6 +7,8 @@ package com.ceng319.lifelinesbreathalyzer;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.content.pm.ActivityInfo;
+import android.content.res.Configuration;
 import android.os.Bundle;
 import android.preference.PreferenceManager;
 import android.support.v7.app.AlertDialog;
@@ -19,6 +21,7 @@ import android.widget.Button;
 
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
+
 
 public class MainActivity extends AppCompatActivity {
 
@@ -35,6 +38,12 @@ public class MainActivity extends AppCompatActivity {
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
+        //This is used to detect if it is a tablet. Then tells it to be landscape only.
+        int screenSize = getResources().getConfiguration().screenLayout & Configuration.SCREENLAYOUT_SIZE_MASK;
+        if(screenSize == Configuration.SCREENLAYOUT_SIZE_XLARGE){
+            setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_LANDSCAPE);
+        }
+
         // Initialize Firebase Auth
         mFirebaseAuth = FirebaseAuth.getInstance();
 
@@ -48,6 +57,10 @@ public class MainActivity extends AppCompatActivity {
         mFirebaseUser = mFirebaseAuth.getCurrentUser();
 
         button_test = (Button) findViewById(R.id.BeginTest);
+        Button button_test = (Button) findViewById(R.id.mainAtest);
+        Button heart = (Button) findViewById(R.id.mainH);
+        Button results = (Button) findViewById(R.id.Results);
+
         button_test.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -56,6 +69,24 @@ public class MainActivity extends AppCompatActivity {
             }
         });
         button_login = (Button) findViewById(R.id.Log);
+
+        heart.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(MainActivity.this, HeartRateActivity.class);
+                startActivity(intent);
+            }
+        });
+
+        results.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(MainActivity.this, PastResultsActivity.class);
+                startActivity(intent);
+            }
+        });
+
+        final Button button_login = (Button) findViewById(R.id.Log);
 
         // set button to logout if user is logged in
         if (mFirebaseUser != null) {
