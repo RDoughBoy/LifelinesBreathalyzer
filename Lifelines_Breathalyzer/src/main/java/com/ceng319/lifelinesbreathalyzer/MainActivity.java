@@ -4,8 +4,6 @@
 
 package com.ceng319.lifelinesbreathalyzer;
 
-import android.app.Application;
-import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
@@ -14,7 +12,6 @@ import android.preference.PreferenceManager;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
-import android.util.Log;
 import android.view.View;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -23,16 +20,13 @@ import android.widget.Button;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 
-import java.util.HashMap;
-
 public class MainActivity extends AppCompatActivity {
 
     private FirebaseAuth mFirebaseAuth;
     private FirebaseUser mFirebaseUser;
     SharedPreferences sharedPreferences;
     static Boolean alreadyExecuted = false;
-    Button button_login;
-    Button button_test;
+    Button button_login, button_test;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -54,7 +48,6 @@ public class MainActivity extends AppCompatActivity {
         mFirebaseUser = mFirebaseAuth.getCurrentUser();
 
         button_test = (Button) findViewById(R.id.BeginTest);
-
         button_test.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -62,7 +55,6 @@ public class MainActivity extends AppCompatActivity {
                 startActivity(intent);
             }
         });
-
         button_login = (Button) findViewById(R.id.Log);
 
         // set button to logout if user is logged in
@@ -83,6 +75,7 @@ public class MainActivity extends AppCompatActivity {
                 }
             });
         } else {
+            // set button to login if user not logged in
             button_login.setText(getString(R.string.login));
             button_login.setOnClickListener(new View.OnClickListener() {
                 @Override
@@ -134,12 +127,17 @@ public class MainActivity extends AppCompatActivity {
         dlgAlert.create().show();
     }
 
+    //check if remember me is set
     public void checkRememberMe(){
         boolean checkBoxValue;
         button_login = (Button) findViewById(R.id.Log);
+
+        //get sharedpreferences for the boolean "Remember_Me"
         sharedPreferences = PreferenceManager
                 .getDefaultSharedPreferences(this);
         checkBoxValue = sharedPreferences.getBoolean("Remember_Me", false);
+
+        //sign out user if "Remember_Me" is false and set login button
         if (!checkBoxValue) {
             mFirebaseAuth.signOut();
             button_login.setText(getString(R.string.login));

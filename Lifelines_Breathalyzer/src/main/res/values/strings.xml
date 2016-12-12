@@ -39,13 +39,15 @@
     <string name="signup_full">Full Licence</string>
     <string name="signup_email_error">Email Already Taken</string>
 
-    <string name="firebase_users">users</string>
-    <string name="firebase_name">name</string>
-    <string name="firebase_city">city</string>
-    <string name="firebase_province">province</string>
-    <string name="firebase_licence">licence</string>
-    <string name="firebase_address">address</string>
-    <string name="firebase_phone">phone</string>
+    <string name="firebase_users" translatable="false">users</string>
+    <string name="firebase_name" translatable="false">name</string>
+    <string name="firebase_city" translatable="false">city</string>
+    <string name="firebase_province" translatable="false">province</string>
+    <string name="firebase_licence" translatable="false">licence</string>
+    <string name="firebase_address" translatable="false">address</string>
+    <string name="firebase_phone" translatable="false">phone</string>
+    <string name="firebase_pastBAC" translatable="false">pastBAC</string>
+    <string name="firebase_pastBPM" translatable="false">pastBPM</string>
 
     <string name="valid_name_empty">Name Cannot Be Empty</string>
     <string name="valid_name_not">Invalid Name</string>

@@ -30,14 +30,15 @@ import com.google.firebase.database.FirebaseDatabase;
 
 public class SignUpActivity extends AppCompatActivity {
 
-    private boolean nameValid = false;
-    private boolean emailValid = false;
-    private boolean passValid = false;
-    private boolean passConfirmValid = false;
-    private boolean cityValid = false;
-    private boolean addressValid = false;
-    private boolean phoneValid = false;
+    private boolean nameValid = false, emailValid = false,
+            passValid = false, passConfirmValid = false,
+            cityValid = false, addressValid = false,
+            phoneValid = false;
     Context context = this;
+    EditText name_val, email_val, phone_val, add_val ,
+            city_val, pass_val, pass_confirm_val;
+    Spinner province, licence;
+    Button createAccount;
     private FirebaseAuth mFirebaseAuth;
     private DatabaseReference mDatabase;
     private String mUserId;
@@ -50,22 +51,23 @@ public class SignUpActivity extends AppCompatActivity {
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
+        // get Firebase user, authentication and database
         mFirebaseAuth = FirebaseAuth.getInstance();
         mFirebaseUser = mFirebaseAuth.getCurrentUser();
         mDatabase = FirebaseDatabase.getInstance().getReference();
 
         //VALIDATION OF INPUT
-        final EditText name_val = (EditText) findViewById(R.id.signupName); //name
-        final EditText email_val = (EditText) findViewById(R.id.signupEmail); //email
-        final EditText phone_val = (EditText) findViewById(R.id.signupPhone); //phone
-        final EditText add_val = (EditText) findViewById(R.id.signupAddress); //address
-        final EditText city_val = (EditText) findViewById(R.id.signupCity); //city
-        final EditText pass_val = (EditText) findViewById(R.id.signupPassword); //password
-        final EditText pass_confirm_val = (EditText) findViewById(R.id.signupPasswordConfirm); //password confirmation
+        name_val = (EditText) findViewById(R.id.signupName); //name
+        email_val = (EditText) findViewById(R.id.signupEmail); //email
+        phone_val = (EditText) findViewById(R.id.signupPhone); //phone
+        add_val = (EditText) findViewById(R.id.signupAddress); //address
+        city_val = (EditText) findViewById(R.id.signupCity); //city
+        pass_val = (EditText) findViewById(R.id.signupPassword); //password
+        pass_confirm_val = (EditText) findViewById(R.id.signupPasswordConfirm); //password confirmation
+        province = (Spinner)findViewById(R.id.signupProvince);
+        licence = (Spinner)findViewById(R.id.signupLicence);
 
-        final Spinner province = (Spinner)findViewById(R.id.signupProvince);
-        final Spinner licence = (Spinner)findViewById(R.id.signupLicence);
-
+        // name validation
         name_val.addTextChangedListener(new TextWatcher() {
             @Override
             public void beforeTextChanged(CharSequence s, int start, int count, int after) {
@@ -92,6 +94,7 @@ public class SignUpActivity extends AppCompatActivity {
             }
         });
 
+        // email validation
         email_val.addTextChangedListener(new TextWatcher() {
             @Override
             public void beforeTextChanged(CharSequence s, int start, int count, int after) {
@@ -115,6 +118,7 @@ public class SignUpActivity extends AppCompatActivity {
             }
         });
 
+        // phone validation
         phone_val.addTextChangedListener(new TextWatcher() {
             @Override
             public void beforeTextChanged(CharSequence s, int start, int count, int after) {
@@ -138,6 +142,7 @@ public class SignUpActivity extends AppCompatActivity {
             }
         });
 
+        // address validation
         add_val.addTextChangedListener(new TextWatcher() {
             @Override
             public void beforeTextChanged(CharSequence s, int start, int count, int after) {
@@ -161,6 +166,7 @@ public class SignUpActivity extends AppCompatActivity {
             }
         });
 
+        // password validation
         pass_val.addTextChangedListener(new TextWatcher() {
             @Override
             public void beforeTextChanged(CharSequence s, int start, int count, int after) {
@@ -184,6 +190,7 @@ public class SignUpActivity extends AppCompatActivity {
             }
         });
 
+        // password confirmation validation
         pass_confirm_val.addTextChangedListener(new TextWatcher() {
             @Override
             public void beforeTextChanged(CharSequence s, int start, int count, int after) {
@@ -207,6 +214,7 @@ public class SignUpActivity extends AppCompatActivity {
             }
         });
 
+        // city validation
         city_val.addTextChangedListener(new TextWatcher() {
             @Override
             public void beforeTextChanged(CharSequence s, int start, int count, int after) {
@@ -230,9 +238,10 @@ public class SignUpActivity extends AppCompatActivity {
             }
         });
 
-        Button createAccount = (Button) findViewById(R.id.signupButton);
+        createAccount = (Button) findViewById(R.id.signupButton);
         createAccount.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
+                // display alert dialog if any of the fields are invalid
                 if (!nameValid || !emailValid || !passValid || !passConfirmValid || !cityValid || !addressValid || !phoneValid) {
                     AlertDialog.Builder dlgAlert = new AlertDialog.Builder(context);
                     dlgAlert.setMessage(getString(R.string.dialog_invalid));
@@ -242,12 +251,13 @@ public class SignUpActivity extends AppCompatActivity {
                     dlgAlert.create().show();
                     return;
                 } else {
+                    // create a user account with email and password
                     mFirebaseAuth.createUserWithEmailAndPassword(email_val.getText().toString(), pass_val.getText().toString())
                             .addOnCompleteListener(SignUpActivity.this, new OnCompleteListener<AuthResult>() {
                         @Override
                         public void onComplete(@NonNull Task<AuthResult> task) {
                             if (task.isSuccessful()) {
-                                // add data to the firebase database for the user
+                                // add data to the Firebase database for the user
                                 mFirebaseUser = mFirebaseAuth.getCurrentUser();
                                 mUserId = mFirebaseUser.getUid();
                                 mDatabase.child(getString(R.string.firebase_users)).child(mUserId).child(getString(R.string.firebase_name)).setValue(name_val.getText().toString());

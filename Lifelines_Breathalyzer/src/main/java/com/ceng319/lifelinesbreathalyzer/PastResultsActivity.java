@@ -8,7 +8,6 @@ import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.text.method.ScrollingMovementMethod;
-import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.TextView;
@@ -27,39 +26,41 @@ public class PastResultsActivity extends AppCompatActivity {
     private FirebaseUser mFirebaseUser;
     private DatabaseReference mDatabase;
     private String mUserId;
+    TextView avgBAC, avgBPM, tvPastBAC, tvPastBPM;
 
     @Override
-    protected void onCreate(Bundle savedInstanceState) {  //TODO Local DB for when user is logged out
+    protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_past_results);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
+        // get Firebase user, authentication and database
         mFirebaseAuth = FirebaseAuth.getInstance();
         mFirebaseUser = mFirebaseAuth.getCurrentUser();
         mDatabase = FirebaseDatabase.getInstance().getReference();
 
-        final TextView avgBAC = (TextView)findViewById(R.id.AVGBAC);
-        final TextView avgBPM = (TextView)findViewById(R.id.AVGheart);
-        final TextView textScrollable1 = (TextView)findViewById(R.id.PastBAClevels);
-        final TextView textScrollable2 = (TextView)findViewById(R.id.PastBPMLevels);
+        avgBAC = (TextView)findViewById(R.id.AVGBAC);
+        avgBPM = (TextView)findViewById(R.id.AVGheart);
+        tvPastBAC = (TextView)findViewById(R.id.PastBAClevels);
+        tvPastBPM = (TextView)findViewById(R.id.PastBPMLevels);
+
         //This is to enable scrolling on scrollview
-        textScrollable1.setMovementMethod(new ScrollingMovementMethod());
-        textScrollable2.setMovementMethod(new ScrollingMovementMethod());
+        tvPastBAC.setMovementMethod(new ScrollingMovementMethod());
+        tvPastBPM.setMovementMethod(new ScrollingMovementMethod());
 
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
-
-
+        //if user is logged in get the past data
         if (mFirebaseUser != null) {
             mUserId = mFirebaseUser.getUid();
 
             // get past BAC levels and display average
-            mDatabase.child("users").child(mUserId).child("pastBAC").addChildEventListener(new ChildEventListener() {
+            mDatabase.child(getString(R.string.firebase_users)).child(mUserId).child(getString(R.string.firebase_pastBAC)).addChildEventListener(new ChildEventListener() {
                 @Override
                 public void onChildAdded(DataSnapshot dataSnapshot, String s) {
                     String pastBAC = (dataSnapshot.getValue(String.class));
-                    textScrollable1.setText(pastBAC);
+                    tvPastBAC.setText(pastBAC);
                     convertStringToArray(pastBAC);
                     String[] arr = convertStringToArray(pastBAC);
                     double total = 0;
@@ -73,7 +74,7 @@ public class PastResultsActivity extends AppCompatActivity {
                 @Override
                 public void onChildChanged(DataSnapshot dataSnapshot, String s) {
                     String pastBAC = (dataSnapshot.getValue(String.class));
-                    textScrollable1.setText(pastBAC);
+                    tvPastBAC.setText(pastBAC);
                     convertStringToArray(pastBAC);
                     String[] arr = convertStringToArray(pastBAC);
                     double total = 0;
@@ -98,11 +99,11 @@ public class PastResultsActivity extends AppCompatActivity {
             });
 
             // get past BPM levels and display average
-            mDatabase.child("users").child(mUserId).child("pastBPM").addChildEventListener(new ChildEventListener() {
+            mDatabase.child(getString(R.string.firebase_users)).child(mUserId).child(getString(R.string.firebase_pastBPM)).addChildEventListener(new ChildEventListener() {
                 @Override
                 public void onChildAdded(DataSnapshot dataSnapshot, String s) {
                     String pastBPM = (dataSnapshot.getValue(String.class));
-                    textScrollable2.setText(pastBPM);
+                    tvPastBPM.setText(pastBPM);
                     String[] arr = convertStringToArray(pastBPM);
                     double total = 0;
                     for (int j = 0; j < arr.length; j++) {
@@ -115,7 +116,7 @@ public class PastResultsActivity extends AppCompatActivity {
                 @Override
                 public void onChildChanged(DataSnapshot dataSnapshot, String s) {
                     String pastBPM = (dataSnapshot.getValue(String.class));
-                    textScrollable2.setText(pastBPM);
+                    tvPastBPM.setText(pastBPM);
                     String[] arr = convertStringToArray(pastBPM);
                     double total = 0;
                     for (int j = 0; j < arr.length; j++) {

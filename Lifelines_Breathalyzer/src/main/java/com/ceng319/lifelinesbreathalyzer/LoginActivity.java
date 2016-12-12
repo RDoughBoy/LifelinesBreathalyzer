@@ -4,6 +4,7 @@
 
 package com.ceng319.lifelinesbreathalyzer;
 
+import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.AsyncTask;
@@ -16,6 +17,7 @@ import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.view.inputmethod.InputMethodManager;
 import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.EditText;
@@ -31,8 +33,7 @@ public class LoginActivity extends AppCompatActivity {
 
     private FirebaseAuth mFirebaseAuth;
     private ProgressBar progressBar;
-    EditText emailEditText;
-    EditText passwordEditText;
+    EditText emailEditText, passwordEditText;
     TextView signup;
     Button login;
     CheckBox rememberme;
@@ -69,12 +70,19 @@ public class LoginActivity extends AppCompatActivity {
 
         login.setOnClickListener(new View.OnClickListener(){
             public void onClick(View v){
+                // hide keyboard when user clicks login
+                InputMethodManager inputManager = (InputMethodManager)
+                        getSystemService(Context.INPUT_METHOD_SERVICE);
+                inputManager.hideSoftInputFromWindow(getCurrentFocus().getWindowToken(),
+                        InputMethodManager.HIDE_NOT_ALWAYS);
+
                 String email = emailEditText.getText().toString();
                 String password = passwordEditText.getText().toString();
 
                 email = email.trim();
                 password = password.trim();
 
+                //display error if email or password fields are empty
                 if (email.isEmpty() || password.isEmpty()) {
                     AlertDialog.Builder builder = new AlertDialog.Builder(LoginActivity.this);
                     builder.setMessage(R.string.login_error_message)
@@ -91,7 +99,7 @@ public class LoginActivity extends AppCompatActivity {
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
     }
 
-
+    // AsyncTask for logging in
     private class LoginTask extends AsyncTask<String, Void, Void> {
         protected void onPreExecute() {
             // shows progress bar
@@ -99,7 +107,7 @@ public class LoginActivity extends AppCompatActivity {
         }
 
         protected Void doInBackground(String... params) {
-            // firebase signin task
+            // Firebase sign in task
             mFirebaseAuth.signInWithEmailAndPassword(params[0], params[1])
                     .addOnCompleteListener(LoginActivity.this, new OnCompleteListener<AuthResult>() {
                         @Override
@@ -124,8 +132,6 @@ public class LoginActivity extends AppCompatActivity {
                     });
             return null;
         }
-
-        protected void onProgressUpdate() { }
 
         protected void onPostExecute() {
             // Hide the progress bar
