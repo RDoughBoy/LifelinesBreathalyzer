@@ -17,8 +17,6 @@ import android.os.Bundle;
 import android.os.RemoteException;
 import android.preference.PreferenceManager;
 import android.provider.ContactsContract;
-import android.support.design.widget.FloatingActionButton;
-import android.support.design.widget.Snackbar;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
@@ -33,6 +31,8 @@ import java.util.regex.Pattern;
 public class ContactsActivity extends AppCompatActivity {
     private int valid = 0;
     Context context = this;
+    EditText name, name2, name3, name4, name5,
+            num, num2, num3, num4, num5;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -54,16 +54,16 @@ public class ContactsActivity extends AppCompatActivity {
         SharedPreferences.Editor editor = sharedPreferences.edit();
         Button submit = (Button)findViewById(R.id.button);
 
-        final EditText name = (EditText) findViewById(R.id.editText);
-        final EditText num = (EditText) findViewById(R.id.editText2);
-        final EditText name2 = (EditText) findViewById(R.id.editText3);
-        final EditText num2 = (EditText) findViewById(R.id.editText4);
-        final EditText name3 = (EditText) findViewById(R.id.editText5);
-        final EditText num3 = (EditText) findViewById(R.id.editText6);
-        final EditText name4 = (EditText) findViewById(R.id.editText7);
-        final EditText num4 = (EditText) findViewById(R.id.editText8);
-        final EditText name5 = (EditText) findViewById(R.id.editText9);
-        final EditText num5 = (EditText) findViewById(R.id.editText10);
+        name = (EditText) findViewById(R.id.editText);
+        num = (EditText) findViewById(R.id.editText2);
+        name2 = (EditText) findViewById(R.id.editText3);
+        num2 = (EditText) findViewById(R.id.editText4);
+        name3 = (EditText) findViewById(R.id.editText5);
+        num3 = (EditText) findViewById(R.id.editText6);
+        name4 = (EditText) findViewById(R.id.editText7);
+        num4 = (EditText) findViewById(R.id.editText8);
+        name5 = (EditText) findViewById(R.id.editText9);
+        num5 = (EditText) findViewById(R.id.editText10);
 
         name.setOnFocusChangeListener(new View.OnFocusChangeListener() {
             @Override

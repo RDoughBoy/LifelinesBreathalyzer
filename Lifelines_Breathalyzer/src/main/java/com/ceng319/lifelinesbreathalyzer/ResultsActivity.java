@@ -26,10 +26,16 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.Toast;
 
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
+
 public class ResultsActivity extends AppCompatActivity {
 
 
     private static final int REQUEST_CALL = 1;
+    private FirebaseAuth mFirebaseAuth;
+    private FirebaseUser mFirebaseUser;
+    Button button_call, button_taxi, button_hotel, button_past;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -44,10 +50,21 @@ public class ResultsActivity extends AppCompatActivity {
             setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_LANDSCAPE);
         }
 
-        Button button_call = (Button) findViewById(R.id.ResultsOption1);
-        Button button_taxi = (Button) findViewById(R.id.ResultsOption2);
-        Button button_hotel = (Button) findViewById(R.id.ResultsOption3);
-        Button button_past = (Button) findViewById(R.id.ResultsOption4);
+        // Initialize Firebase Auth
+        mFirebaseAuth = FirebaseAuth.getInstance();
+        // get Firebase User
+        mFirebaseUser = mFirebaseAuth.getCurrentUser();
+
+        button_call = (Button) findViewById(R.id.ResultsOption1);
+        button_taxi = (Button) findViewById(R.id.ResultsOption2);
+        button_hotel = (Button) findViewById(R.id.ResultsOption3);
+        button_past = (Button) findViewById(R.id.ResultsOption4);
+
+        if (mFirebaseUser != null) {
+            button_past.setVisibility(View.VISIBLE);
+        } else {
+            button_past.setVisibility(View.GONE);
+        }
 
         button_call.setOnClickListener(new View.OnClickListener() {
             @Override

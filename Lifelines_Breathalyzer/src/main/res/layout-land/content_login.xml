@@ -40,7 +40,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:id="@+id/loginEmailText"
-                android:layout_weight="1" />
+                android:layout_weight=".5" />
 
             <EditText
                 android:layout_width="wrap_content"
@@ -62,7 +62,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:id="@+id/loginPasswordText"
-                android:layout_weight="1" />
+                android:layout_weight=".37" />
 
             <EditText
                 android:layout_width="wrap_content"
@@ -72,6 +72,13 @@
                 android:id="@+id/loginPassword"
                 android:layout_weight="1" />
         </LinearLayout>
+
+        <CheckBox
+            android:text="Remember Me"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:id="@+id/loginRememberCheck" />
 
         <Button
             android:text="@string/login"

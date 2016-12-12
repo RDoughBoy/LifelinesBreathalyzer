@@ -17,6 +17,8 @@ import android.widget.Button;
 
 public class TestAlcoholActivity extends AppCompatActivity {
 
+    Button button_test, button;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -32,8 +34,8 @@ public class TestAlcoholActivity extends AppCompatActivity {
 
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
-        Button button_test = (Button) findViewById(R.id.HeartTest);
-        Button button = (Button) findViewById(R.id.AlcRes);
+        button_test = (Button) findViewById(R.id.HeartTest);
+        button = (Button) findViewById(R.id.AlcRes);
 
         button_test.setOnClickListener(new View.OnClickListener() {
             @Override

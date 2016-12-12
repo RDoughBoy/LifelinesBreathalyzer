@@ -23,6 +23,7 @@ import android.widget.Toast;
 public class TaxiActivity extends AppCompatActivity {
 
     private static final int REQUEST_CALL = 1;
+    Button button_taxi1, button_taxi2, button_taxi3, button_taxi4;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -37,10 +38,10 @@ public class TaxiActivity extends AppCompatActivity {
             setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_LANDSCAPE);
         }
 
-        Button button_taxi1 = (Button) findViewById(R.id.AllStar);
-        Button button_taxi2 = (Button) findViewById(R.id.BlueWhite);
-        Button button_taxi3 = (Button) findViewById(R.id.Beck);
-        Button button_taxi4 = (Button) findViewById(R.id.BlackCab);
+        button_taxi1 = (Button) findViewById(R.id.AllStar);
+        button_taxi2 = (Button) findViewById(R.id.BlueWhite);
+        button_taxi3 = (Button) findViewById(R.id.Beck);
+        button_taxi4 = (Button) findViewById(R.id.BlackCab);
 
         button_taxi1.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -109,5 +110,4 @@ public class TaxiActivity extends AppCompatActivity {
             }
         }
     }
-
 }

@@ -86,7 +86,7 @@
                             android:text="0:00BAC\n0:00BAC\n0:00BAC\n0:00BAC\n0:00BAC"
                             android:scrollbars="vertical"
                             android:gravity="center"
-                            android:textSize="10dp"
+                            android:textSize="14sp"
                             android:maxLines="5"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
@@ -145,7 +145,7 @@
                             android:gravity="center"
                             android:layout_marginLeft="15dp"
                             android:maxLines="5"
-                            android:textSize="10dp"
+                            android:textSize="14sp"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:id="@+id/PastBPMLevels" />

@@ -17,6 +17,8 @@ import android.widget.Button;
 
 public class HeartRateActivity extends AppCompatActivity {
 
+    Button button_test, alcohol;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -31,8 +33,8 @@ public class HeartRateActivity extends AppCompatActivity {
             setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_LANDSCAPE);
         }
 
-        Button button_test = (Button) findViewById(R.id.HeartResults);
-        Button alcohol = (Button) findViewById(R.id.AlcTest);
+        button_test = (Button) findViewById(R.id.HeartResults);
+        alcohol = (Button) findViewById(R.id.AlcTest);
 
         button_test.setOnClickListener(new View.OnClickListener() {
             @Override

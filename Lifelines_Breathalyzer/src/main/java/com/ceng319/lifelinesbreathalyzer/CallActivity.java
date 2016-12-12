@@ -25,6 +25,9 @@ import android.widget.Button;
 public class CallActivity extends AppCompatActivity {
 
     Context context = this;
+    Button name1, name2, name3, name4, name5;
+    String con1_name, con2_name, con3_name, con4_name, con5_name,
+            con1_num, con2_num, con3_num, con4_num, con5_num;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -40,23 +43,23 @@ public class CallActivity extends AppCompatActivity {
             setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_LANDSCAPE);
         }
 
-        Button name1 = (Button) findViewById(R.id.Name1Button);
-        Button name2 = (Button) findViewById(R.id.Name2Button);
-        Button name3 = (Button) findViewById(R.id.Name3Button);
-        Button name4 = (Button) findViewById(R.id.Name4Button);
-        Button name5 = (Button) findViewById(R.id.Name5Button);
+        name1 = (Button) findViewById(R.id.Name1Button);
+        name2 = (Button) findViewById(R.id.Name2Button);
+        name3 = (Button) findViewById(R.id.Name3Button);
+        name4 = (Button) findViewById(R.id.Name4Button);
+        name5 = (Button) findViewById(R.id.Name5Button);
 
         SharedPreferences sharedPreferences = PreferenceManager.getDefaultSharedPreferences(this);
-        String con1_name = sharedPreferences.getString("Contact1_Name", "empty");
-        final String con1_num = sharedPreferences.getString("Contact1_Number", " ");
-        String con2_name = sharedPreferences.getString("Contact2_Name", "empty");
-        final String con2_num = sharedPreferences.getString("Contact2_Number", " ");
-        String con3_name = sharedPreferences.getString("Contact3_Name", "empty");
-        final String con3_num = sharedPreferences.getString("Contact3_Number", " ");
-        String con4_name = sharedPreferences.getString("Contact4_Name", "empty");
-        final String con4_num = sharedPreferences.getString("Contact4_Number", " ");
-        String con5_name = sharedPreferences.getString("Contact5_Name", "empty");
-        final String con5_num = sharedPreferences.getString("Contact5_Number", " ");
+        con1_name = sharedPreferences.getString("Contact1_Name", "empty");
+        con1_num = sharedPreferences.getString("Contact1_Number", " ");
+        con2_name = sharedPreferences.getString("Contact2_Name", "empty");
+        con2_num = sharedPreferences.getString("Contact2_Number", " ");
+        con3_name = sharedPreferences.getString("Contact3_Name", "empty");
+        con3_num = sharedPreferences.getString("Contact3_Number", " ");
+        con4_name = sharedPreferences.getString("Contact4_Name", "empty");
+        con4_num = sharedPreferences.getString("Contact4_Number", " ");
+        con5_name = sharedPreferences.getString("Contact5_Name", "empty");
+        con5_num = sharedPreferences.getString("Contact5_Number", " ");
 
         name1.setText(con1_name + ": " + String.valueOf(con1_num));
         name2.setText(con2_name + ": " + String.valueOf(con2_num));

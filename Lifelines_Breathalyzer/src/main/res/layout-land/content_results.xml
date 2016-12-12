@@ -30,9 +30,9 @@
  depending on their alcohol level and heartbeat reading."
                 android:layout_width="match_parent"
                 android:gravity="center"
-                android:layout_height="154dp"
                 android:id="@+id/ResultsTXTmsg"
-                android:background="@drawable/border_style"/>
+                android:background="@drawable/border_style"
+                android:layout_height="120dp" />
 
             <TableRow
                 android:paddingTop="40dp"

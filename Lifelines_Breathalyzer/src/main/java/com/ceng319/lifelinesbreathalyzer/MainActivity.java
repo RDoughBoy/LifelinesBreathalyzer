@@ -29,7 +29,7 @@ public class MainActivity extends AppCompatActivity {
     private FirebaseUser mFirebaseUser;
     SharedPreferences sharedPreferences;
     static Boolean alreadyExecuted = false;
-    Button button_login, button_test;
+    Button button_login, button_test, heart, results;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -56,10 +56,9 @@ public class MainActivity extends AppCompatActivity {
         // get Firebase User
         mFirebaseUser = mFirebaseAuth.getCurrentUser();
 
-        button_test = (Button) findViewById(R.id.BeginTest);
-        Button button_test = (Button) findViewById(R.id.mainAtest);
-        Button heart = (Button) findViewById(R.id.mainH);
-        Button results = (Button) findViewById(R.id.Results);
+        button_test = (Button) findViewById(R.id.mainAtest);
+        heart = (Button) findViewById(R.id.mainH);
+        results = (Button) findViewById(R.id.Results);
 
         button_test.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -86,8 +85,6 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
-        final Button button_login = (Button) findViewById(R.id.Log);
-
         // set button to logout if user is logged in
         if (mFirebaseUser != null) {
             button_login.setText(getString(R.string.logout));
@@ -105,6 +102,7 @@ public class MainActivity extends AppCompatActivity {
                     });
                 }
             });
+            results.setVisibility(View.VISIBLE);
         } else {
             // set button to login if user not logged in
             button_login.setText(getString(R.string.login));
@@ -115,6 +113,7 @@ public class MainActivity extends AppCompatActivity {
                     startActivity(intent);
                 }
             });
+            results.setVisibility(View.GONE);
         }
     }
 
