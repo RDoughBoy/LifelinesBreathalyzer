@@ -4,13 +4,19 @@
 
 package com.ceng319.lifelinesbreathalyzer;
 
+import android.*;
+import android.Manifest;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.content.pm.ActivityInfo;
+import android.content.pm.PackageManager;
 import android.content.res.Configuration;
 import android.os.Bundle;
 import android.preference.PreferenceManager;
+import android.support.annotation.RequiresPermission;
+import android.support.v4.app.ActivityCompat;
+import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
@@ -30,7 +36,7 @@ public class MainActivity extends AppCompatActivity {
     SharedPreferences sharedPreferences;
     static Boolean alreadyExecuted = false;
     Button button_login, button_test, heart, results;
-
+    private static final int PERMISSIONS_REQUEST_READ_CONTACTS = 100;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -134,7 +140,12 @@ public class MainActivity extends AppCompatActivity {
         //noinspection SimplifiableIfStatement
         if(id == R.id.action_contacts) {
             Intent intent = new Intent(this, ContactsActivity.class);
-            startActivity(intent);
+            if (ContextCompat.checkSelfPermission(this, Manifest.permission.WRITE_CONTACTS) != PackageManager.PERMISSION_GRANTED) {
+                ActivityCompat.requestPermissions(this,
+                        new String[]{Manifest.permission.WRITE_CONTACTS},PERMISSIONS_REQUEST_READ_CONTACTS);
+            } else {
+                startActivity(intent);
+            }
         }
 
         return super.onOptionsItemSelected(item);
